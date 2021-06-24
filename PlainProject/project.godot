@@ -1,0 +1,144 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "LabeledHSlider",
+"class": "BusVolumeSlider",
+"language": "GDScript",
+"path": "res://scenes/ui/ui_elements/slider/BusVolumeSlider.gd"
+}, {
+"base": "CheckButton",
+"class": "CheckGameButton",
+"language": "GDScript",
+"path": "res://scenes/ui/ui_elements/button/GameCheckButton.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "DamageableKinematicBody",
+"language": "GDScript",
+"path": "res://scripts/interfaces/DamageableKinematicBody.gd"
+}, {
+"base": "Button",
+"class": "GameButton",
+"language": "GDScript",
+"path": "res://scenes/ui/ui_elements/button/GameButton.gd"
+}, {
+"base": "TextureButton",
+"class": "GameTextureButton",
+"language": "GDScript",
+"path": "res://scenes/ui/ui_elements/button/GameTextureButton.gd"
+}, {
+"base": "LinkButton",
+"class": "HotlinkButton",
+"language": "GDScript",
+"path": "res://scenes/ui/ui_elements/button/HotlinkButton.gd"
+}, {
+"base": "HSlider",
+"class": "LabeledHSlider",
+"language": "GDScript",
+"path": "res://scenes/ui/ui_elements/slider/LabeledHSlider.gd"
+}, {
+"base": "OptionButton",
+"class": "LocaleSelect",
+"language": "GDScript",
+"path": "res://scenes/ui/ui_elements/button/LocaleSelect.gd"
+}, {
+"base": "State",
+"class": "PlayerState",
+"language": "GDScript",
+"path": "res://scripts/finite_state_machine/player_fsm/states/PlayerState.gd"
+}, {
+"base": "StateController",
+"class": "PlayerStateController",
+"language": "GDScript",
+"path": "res://scripts/finite_state_machine/player_fsm/PlayerStateController.gd"
+}, {
+"base": "PlayerStateInAir",
+"class": "PlayerStateFall",
+"language": "GDScript",
+"path": "res://scripts/finite_state_machine/player_fsm/states/movement/in_air/PlayerStateFall.gd"
+}, {
+"base": "PlayerStateMovement",
+"class": "PlayerStateIdle",
+"language": "GDScript",
+"path": "res://scripts/finite_state_machine/player_fsm/states/movement/on_floor/PlayerStateIdle.gd"
+}, {
+"base": "PlayerStateMove",
+"class": "PlayerStateInAir",
+"language": "GDScript",
+"path": "res://scripts/finite_state_machine/player_fsm/states/movement/in_air/PlayerStateInAir.gd"
+}, {
+"base": "PlayerStateInAir",
+"class": "PlayerStateJump",
+"language": "GDScript",
+"path": "res://scripts/finite_state_machine/player_fsm/states/movement/in_air/PlayerStateJump.gd"
+}, {
+"base": "PlayerStateMovement",
+"class": "PlayerStateMove",
+"language": "GDScript",
+"path": "res://scripts/finite_state_machine/player_fsm/states/movement/on_floor/PlayerStateMove.gd"
+}, {
+"base": "PlayerState",
+"class": "PlayerStateMovement",
+"language": "GDScript",
+"path": "res://scripts/finite_state_machine/player_fsm/states/movement/PlayerStateMovement.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://scripts/finite_state_machine/State.gd"
+}, {
+"base": "Node",
+"class": "StateController",
+"language": "GDScript",
+"path": "res://scripts/finite_state_machine/StateController.gd"
+} ]
+_global_script_class_icons={
+"BusVolumeSlider": "",
+"CheckGameButton": "",
+"DamageableKinematicBody": "",
+"GameButton": "",
+"GameTextureButton": "",
+"HotlinkButton": "",
+"LabeledHSlider": "",
+"LocaleSelect": "",
+"PlayerState": "",
+"PlayerStateController": "",
+"PlayerStateFall": "",
+"PlayerStateIdle": "",
+"PlayerStateInAir": "",
+"PlayerStateJump": "",
+"PlayerStateMove": "",
+"PlayerStateMovement": "",
+"State": "",
+"StateController": ""
+}
+
+[application]
+
+config/name="Plain Project"
+run/main_scene="res://scenes/screens/TitleScreen.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+FileIO="*res://scripts/file_io/FileIO.gd"
+Settings="*res://scripts/global/Settings.gd"
+Global="*res://scripts/global/Global.gd"
+AudioHandler="*res://scripts/handler/AudioHandler.tscn"
+ScenePaths="*res://scripts/data/ScenePaths.gd"
+
+[gui]
+
+theme/custom="res://resources/themes/default_theme.tres"
+theme/custom_font="res://resources/fonts/default_font.tres"
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

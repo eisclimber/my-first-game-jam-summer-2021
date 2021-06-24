@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/screens/TitleScreen.gd" type="Script" id=1]
+[ext_resource path="res://scenes/ui/ui_elements/button/GameButton.tscn" type="PackedScene" id=2]
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="Margin"]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="PlayButton" parent="Margin/ButtonsVBox" instance=ExtResource( 2 )]
+margin_right = 1024.0
+margin_bottom = 27.0
+text = "Play"
+
+[node name="OptionsButton" parent="Margin/ButtonsVBox" instance=ExtResource( 2 )]
+margin_top = 31.0
+margin_right = 1024.0
+margin_bottom = 58.0
+text = "Options"
+
+[node name="CreditsButton" parent="Margin/ButtonsVBox" instance=ExtResource( 2 )]
+margin_top = 62.0
+margin_right = 1024.0
+margin_bottom = 89.0
+text = "Credits"
+
+[node name="ExitButton" parent="Margin/ButtonsVBox" instance=ExtResource( 2 )]
+margin_top = 93.0
+margin_right = 1024.0
+margin_bottom = 120.0
+text = "Exit"
+[connection signal="pressed" from="Margin/ButtonsVBox/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="Margin/ButtonsVBox/OptionsButton" to="." method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="Margin/ButtonsVBox/CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="pressed" from="Margin/ButtonsVBox/ExitButton" to="." method="_on_ExitButton_pressed"]

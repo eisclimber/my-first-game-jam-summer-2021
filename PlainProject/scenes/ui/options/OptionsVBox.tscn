@@ -1,0 +1,178 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/ui/options/OptionsVBox.gd" type="Script" id=1]
+[ext_resource path="res://resources/ui/themes/TextTheme.tres" type="Theme" id=2]
+[ext_resource path="res://resources/ui/themes/default_theme.tres" type="Theme" id=3]
+[ext_resource path="res://scenes/ui/ui_elements/button/GameCheckButton.gd" type="Script" id=4]
+[ext_resource path="res://scenes/ui/ui_elements/slider/BusVolumeSlider.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/ui/ui_elements/button/LocaleSelect.tscn" type="PackedScene" id=7]
+
+
+
+
+
+[sub_resource type="StyleBoxFlat" id=1]
+draw_center = false
+border_width_left = 100
+border_width_top = 10
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_detail = 20
+shadow_color = Color( 0.811765, 1, 0.0156863, 1 )
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id=2]
+draw_center = false
+border_width_left = 100
+border_width_top = 10
+border_color = Color( 0, 0, 0, 0 )
+corner_detail = 20
+shadow_color = Color( 0.2, 1, 0.2, 1 )
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id=3]
+draw_center = false
+border_width_left = 10
+border_width_top = 10
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+shadow_color = Color( 0.00392157, 0.121569, 0.992157, 1 )
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id=4]
+draw_center = false
+border_width_left = 10
+border_width_top = 10
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+shadow_color = Color( 0.737255, 0.0745098, 0.996078, 1 )
+shadow_size = 5
+
+[node name="OptionsVBox" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+custom_constants/separation = 8
+alignment = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FullscreenHBox" type="HBoxContainer" parent="."]
+margin_top = 196.0
+margin_right = 1280.0
+margin_bottom = 236.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="FullscreenLabel" type="Label" parent="FullscreenHBox"]
+margin_right = 1200.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+text = "options.fullscreen"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FullscreenCheckButton" type="CheckButton" parent="FullscreenHBox"]
+self_modulate = Color( 0, 1, 1, 1 )
+margin_left = 1204.0
+margin_right = 1280.0
+margin_bottom = 40.0
+mouse_default_cursor_shape = 2
+theme = ExtResource( 3 )
+flat = true
+script = ExtResource( 4 )
+
+[node name="HardmodeHBox" type="HBoxContainer" parent="."]
+margin_top = 244.0
+margin_right = 1280.0
+margin_bottom = 284.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="HardmodeLabel" type="Label" parent="HardmodeHBox"]
+margin_right = 1200.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+text = "options.hardmode"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HardmodeCheckButton" type="CheckButton" parent="HardmodeHBox"]
+self_modulate = Color( 0, 1, 0.952941, 1 )
+margin_left = 1204.0
+margin_right = 1280.0
+margin_bottom = 40.0
+mouse_default_cursor_shape = 2
+theme = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="MasterVolumeSlider" parent="." instance=ExtResource( 6 )]
+self_modulate = Color( 0.811765, 1, 0.0156863, 1 )
+margin_top = 292.0
+margin_right = 1280.0
+margin_bottom = 332.0
+rect_min_size = Vector2( 0, 40 )
+custom_styles/slider = SubResource( 1 )
+
+[node name="SoundsVolumeSlider" parent="." instance=ExtResource( 6 )]
+self_modulate = Color( 0.2, 1, 0.2, 1 )
+margin_top = 340.0
+margin_right = 1280.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 0, 40 )
+custom_styles/slider = SubResource( 2 )
+prefix = "audio.sounds_bus : "
+audio_bus = "Sounds"
+
+[node name="MusicVolumeSlider" parent="." instance=ExtResource( 6 )]
+self_modulate = Color( 0.00392157, 0.121569, 0.992157, 1 )
+margin_top = 388.0
+margin_right = 1280.0
+margin_bottom = 428.0
+rect_min_size = Vector2( 0, 40 )
+custom_styles/slider = SubResource( 3 )
+prefix = "audio.music_bus : "
+audio_bus = "Music"
+
+[node name="AmbientVolumeSlider2" parent="." instance=ExtResource( 6 )]
+self_modulate = Color( 0.737255, 0.0745098, 0.996078, 1 )
+margin_top = 436.0
+margin_right = 1280.0
+margin_bottom = 476.0
+rect_min_size = Vector2( 0, 40 )
+custom_styles/slider = SubResource( 4 )
+prefix = "audio.ambient_bus : "
+audio_bus = "Ambient"
+
+[node name="LocaleHBox" type="HBoxContainer" parent="."]
+margin_top = 484.0
+margin_right = 1280.0
+margin_bottom = 524.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="LocaleLabel" type="Label" parent="LocaleHBox"]
+margin_top = 7.0
+margin_right = 1162.0
+margin_bottom = 33.0
+size_flags_horizontal = 3
+text = "options.language"
+
+[node name="LocaleSelect" parent="LocaleHBox" instance=ExtResource( 7 )]
+self_modulate = Color( 0.0117647, 0.913725, 0.956863, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1166.0
+margin_top = 0.0
+margin_right = 1280.0
+margin_bottom = 40.0
+text = "German"
+flat = true
+items = [ "German", null, false, 0, "de", "Pirate", null, false, 1, "pr", "English", null, false, 2, "en" ]
+selected = 0
+[connection signal="toggled" from="FullscreenHBox/FullscreenCheckButton" to="." method="_on_FullscreenCheckButton_toggled"]
+[connection signal="toggled" from="HardmodeHBox/HardmodeCheckButton" to="." method="_on_HardmodeCheckButton_toggled"]

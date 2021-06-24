@@ -1,0 +1,120 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/ui/ui_elements/tooltip/Tooltip.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://resources/fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=3]
+
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_bottom = 0.0
+bg_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 3 )
+
+[node name="Tooltip" type="PanelContainer"]
+visible = false
+margin_left = 1.0
+margin_right = 54.0
+margin_bottom = 41.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 63.0
+margin_bottom = 51.0
+custom_constants/separation = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 53.0
+margin_bottom = 51.0
+custom_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer"]
+margin_right = 53.0
+margin_bottom = 41.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/PanelContainer"]
+margin_right = 53.0
+margin_bottom = 41.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/PanelContainer/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 43.0
+margin_bottom = 31.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer"]
+margin_left = 21.0
+margin_top = 41.0
+margin_right = 31.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 10, 10 )
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="ArrowY" type="TextureRect" parent="HBoxContainer/VBoxContainer/Control"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 10.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 10, 10 )
+rect_pivot_offset = Vector2( 5, 5 )
+size_flags_horizontal = 6
+size_flags_vertical = 0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+margin_left = 53.0
+margin_top = 20.0
+margin_right = 63.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 10, 10 )
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="ArrowX" type="TextureRect" parent="HBoxContainer/Control"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 10.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 10, 10 )
+rect_pivot_offset = Vector2( 5, 5 )
+size_flags_horizontal = 0
+size_flags_vertical = 6
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="tree_entered" from="." to="." method="_on_Tooltip_tree_entered"]
+[connection signal="tree_exited" from="." to="." method="_on_Tooltip_tree_exited"]
