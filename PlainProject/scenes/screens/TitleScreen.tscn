@@ -44,6 +44,7 @@ margin_top = 93.0
 margin_right = 1024.0
 margin_bottom = 120.0
 text = "Exit"
+
 [connection signal="pressed" from="Margin/ButtonsVBox/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Margin/ButtonsVBox/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="Margin/ButtonsVBox/CreditsButton" to="." method="_on_CreditsButton_pressed"]
