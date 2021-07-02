@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/ui/ui_elements/CmdWindow.tscn" type="PackedScene" id=1]
+
+[node name="CodeKnox2" instance=ExtResource( 1 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -229.5
+margin_top = -160.0
+margin_right = 229.5
+margin_bottom = 160.0
+rect_min_size = Vector2( 440, 320 )
+title = "CodeKnox2"
+text_content = "
+                            Q      J           O
+        ..................|  |../  /.........|  |...
+        ____________......|  |./  /.._______________
+      V ____0_____  \\..../  /./ 2/../  ______5______ X
+        ..........\\  \\_____________/  /......| 7|...
+        ______.....\\____1____________/....___|  |___
+      M ____  \\......./ 3/./  /........../ 6_|  |___ G
+        ....\\  \\_____/  /..|  |...______/  /.|  |...
+        .....\\_6_______/../  /.../  ______/./  /....
+        ..................|  |../  /......./  /.....
+        ________________________|  |______/  /......
+      B __________9_____________| 6|____8___/.......
+        ..................|  |..|  |................
+                            A     G             
+"
+
+[node name="Margin" parent="." index="0"]
+margin_right = 459.0
+margin_bottom = 320.0
+
+[node name="ContentVBox" parent="Margin" index="0"]
+margin_right = 455.0
+margin_bottom = 316.0
+
+[node name="TitleHBox" parent="Margin/ContentVBox" index="0"]
+margin_right = 451.0
+
+[node name="TitleMargin" parent="Margin/ContentVBox/TitleHBox" index="1"]
+margin_right = 420.0
+
+[node name="TitleLabel" parent="Margin/ContentVBox/TitleHBox/TitleMargin" index="0"]
+margin_right = 416.0
+text = "CodeKnox2"
+
+[node name="CloseButton" parent="Margin/ContentVBox/TitleHBox" index="2"]
+margin_left = 424.0
+margin_right = 451.0
+
+[node name="ContentControl" parent="Margin/ContentVBox" index="1"]
+margin_right = 451.0
+margin_bottom = 314.0
+
+[node name="ContentLabel" parent="Margin/ContentVBox/ContentControl/ContentMargin" index="0"]
+margin_right = 441.0
+margin_bottom = 268.0
+text = "
+                            Q      J           O
+        ..................|  |../  /.........|  |...
+        ____________......|  |./  /.._______________
+      V ____0_____  \\..../  /./ 2/../  ______5______ X
+        ..........\\  \\_____________/  /......| 7|...
+        ______.....\\____1____________/....___|  |___
+      M ____  \\......./ 3/./  /........../ 6_|  |___ G
+        ....\\  \\_____/  /..|  |...______/  /.|  |...
+        .....\\_6_______/../  /.../  ______/./  /....
+        ..................|  |../  /......./  /.....
+        ________________________|  |______/  /......
+      B __________9_____________| 6|____8___/.......
+        ..................|  |..|  |................
+                            A     G             
+"

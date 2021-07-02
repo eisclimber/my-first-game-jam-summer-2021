@@ -1,7 +1,11 @@
-extends WindowDialog
+tool
+extends CmdWindow
 class_name CodeKnoxEnchrypt
 
 signal new_code_knox(code)
+
+const HAS_NOT_PAYED_TEXT = "Order Summary: \n \n 1x VirtUnlock-Code \n" \
+	+ "1x VirtualDampHandShake \n \n Accepted payment methods: \n StaySmall, YMCC, SmithCoin."
 
 const HAS_PAYED_TEXT_FORMAT = "Confiming the purchase of a VirtUnlock-Code. \n \n" \
 	+ "The %d-digit code was encrypted using CodeKnox. \n \n" \
@@ -10,10 +14,7 @@ const HAS_PAYED_TEXT_FORMAT = "Confiming the purchase of a VirtUnlock-Code. \n \
 
 export (bool) var has_payed = false setget set_has_payed
 
-
-#func _ready():
-#	set_has_payed(true)
-#	call_deferred("popup")
+onready var content_label = $Margin/ContentVBox/ContentControl/ContentMargin/ContentLabel
 
 
 func drop_data(_position : Vector2, _data) -> void:
@@ -30,9 +31,8 @@ func set_has_payed(_has_payed : bool) -> void:
 	
 	if has_payed:
 		generate_new_code()
-	
-	$Margin/HasNotPayedLabel.visible = !has_payed
-	$Margin/HasPayedLabel.visible = has_payed
+	else:
+		content_label.text = HAS_NOT_PAYED_TEXT
 
 
 func generate_new_code() -> void:
@@ -40,7 +40,7 @@ func generate_new_code() -> void:
 	var code = $CodeKnoxLogic.generate_code(code_info["window"], code_info["key"])
 	
 	var new_text = HAS_PAYED_TEXT_FORMAT % [CodeKnoxLogic.NUM_DIGITS, code_info["window"], code_info["key"]]
-	$Margin/HasPayedLabel.text = new_text
+	content_label.text = new_text
 	
 #	print("CodeKnoxEnchrypt.gd: New code generated %s" % str(code))
 	emit_signal("new_code_knox", code)

@@ -1,19 +1,19 @@
-extends WindowDialog
+extends CmdWindow
 
 export (Texture) var coin_texture = null
 export (Vector2) var coin_preview_size = Vector2.ONE * 64
-export (Vector2) var content_border_size = Vector2.ONE * 20
+export (Vector2) var content_border_size = Vector2.ONE * 60
 export (bool) var yields_coin = false
+
+onready var slinding_puzzle = $Margin/ContentVBox/ContentControl/ContentMargin/CenterContainer/CenterControl/SlidingPuzzle
 
 
 func _ready():
-	$PuzzleCenter/SlidingPuzzle.center()
+	slinding_puzzle.center()
 	
-	var content_rect_size = $PuzzleCenter/SlidingPuzzle.get_rect_size() + content_border_size
+	var content_rect_size = slinding_puzzle.get_rect_size() + content_border_size
 	rect_min_size = content_rect_size
 	rect_size = content_rect_size
-	
-	call_deferred("popup")
 
 
 func _on_SlidingPuzzle_completed() -> void:

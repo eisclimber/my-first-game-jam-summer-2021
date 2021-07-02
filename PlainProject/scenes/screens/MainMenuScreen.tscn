@@ -1,12 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/ui/ui_elements/button/GameButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/screens/MainMenuScreen.gd" type="Script" id=2]
+[ext_resource path="res://resources/themes/taskbar_theme.tres" type="Theme" id=3]
+[ext_resource path="res://resources/sprites/desktop/Desktop1.png" type="Texture" id=4]
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 3 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+stretch_mode = 7
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -21,28 +33,43 @@ __meta__ = {
 [node name="ButtonsVBox" type="VBoxContainer" parent="Margin"]
 margin_right = 1280.0
 margin_bottom = 720.0
+custom_constants/separation = 20
+alignment = 1
 
 [node name="PlayButton" parent="Margin/ButtonsVBox" instance=ExtResource( 1 )]
-margin_right = 1280.0
-margin_bottom = 19.0
+margin_left = 520.0
+margin_top = 210.0
+margin_right = 760.0
+margin_bottom = 270.0
+rect_min_size = Vector2( 240, 60 )
+size_flags_horizontal = 4
 text = "Play"
 
 [node name="OptionsButton" parent="Margin/ButtonsVBox" instance=ExtResource( 1 )]
-margin_top = 23.0
-margin_right = 1280.0
-margin_bottom = 42.0
+margin_left = 520.0
+margin_top = 290.0
+margin_right = 760.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 240, 60 )
+size_flags_horizontal = 4
 text = "Options"
 
 [node name="CreditsButton" parent="Margin/ButtonsVBox" instance=ExtResource( 1 )]
-margin_top = 46.0
-margin_right = 1280.0
-margin_bottom = 65.0
+margin_left = 520.0
+margin_top = 370.0
+margin_right = 760.0
+margin_bottom = 430.0
+rect_min_size = Vector2( 240, 60 )
+size_flags_horizontal = 4
 text = "Credits"
 
 [node name="ExitButton" parent="Margin/ButtonsVBox" instance=ExtResource( 1 )]
-margin_top = 69.0
-margin_right = 1280.0
-margin_bottom = 88.0
+margin_left = 520.0
+margin_top = 450.0
+margin_right = 760.0
+margin_bottom = 510.0
+rect_min_size = Vector2( 240, 60 )
+size_flags_horizontal = 4
 text = "Exit"
 
 [connection signal="pressed" from="Margin/ButtonsVBox/PlayButton" to="." method="_on_PlayButton_pressed"]

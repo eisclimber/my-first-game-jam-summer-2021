@@ -19,7 +19,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/ui/ui_elements/button/GameCheckButton.gd"
 }, {
-"base": "WindowDialog",
+"base": "PanelContainer",
+"class": "CmdWindow",
+"language": "GDScript",
+"path": "res://scenes/ui/ui_elements/CmdWindow.gd"
+}, {
+"base": "CmdWindow",
 "class": "CodeKnoxEnchrypt",
 "language": "GDScript",
 "path": "res://scenes/game/code_knots/CodeKnoxEncrypt.gd"
@@ -67,6 +72,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "BusVolumeSlider": "",
 "CheckGameButton": "",
+"CmdWindow": "",
 "CodeKnoxEnchrypt": "",
 "CodeKnoxLogic": "",
 "DamageableKinematicBody": "",

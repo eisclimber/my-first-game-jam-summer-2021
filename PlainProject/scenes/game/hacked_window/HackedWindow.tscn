@@ -1,20 +1,68 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://scenes/game/hacked_window/HackedWindow.gd" type="Script" id=1]
+[ext_resource path="res://scenes/ui/ui_elements/CmdWindow.tscn" type="PackedScene" id=1]
 
-[node name="HackedWindow" type="WindowDialog"]
-visible = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-window_title = "You have been hacked!!!!"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="HackedWindow" instance=ExtResource( 1 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -331.5
+margin_top = -165.0
+margin_right = 331.5
+margin_bottom = 165.0
+title = "You have been hacked!!!!"
+text_content = "Well guess who's PC has been hacked? 
 
-[node name="Label" type="Label" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+Yours? Yup.
+
+You have been hacked!!!!
+
+All of your data has been encrypted and will be uploaded to our servers.
+After the upload is completed we will override your CPU which will litterally blow it up.
+
+The only way to get your data back and prevent your pc from exploding is to pay a ransom using the window on the right.
+We are not cheap so we want a fantistillion VeeDollars! You can transmit the ransom using the window on the right.
+Be warned you only have 15 minutes to pay.
+
+If you do not manage to pay in time, then say goodbye to all your data and take cover.
+
+
+
+
+
+
+"
+
+[node name="Margin" parent="." index="0"]
+margin_right = 663.0
+margin_bottom = 330.0
+
+[node name="ContentVBox" parent="Margin" index="0"]
+margin_right = 659.0
+margin_bottom = 326.0
+
+[node name="TitleHBox" parent="Margin/ContentVBox" index="0"]
+margin_right = 655.0
+
+[node name="TitleMargin" parent="Margin/ContentVBox/TitleHBox" index="1"]
+margin_right = 624.0
+
+[node name="TitleLabel" parent="Margin/ContentVBox/TitleHBox/TitleMargin" index="0"]
+margin_right = 620.0
+text = "You have been hacked!!!!"
+
+[node name="CloseButton" parent="Margin/ContentVBox/TitleHBox" index="2"]
+margin_left = 628.0
+margin_right = 655.0
+
+[node name="ContentControl" parent="Margin/ContentVBox" index="1"]
+margin_right = 655.0
+margin_bottom = 324.0
+
+[node name="ContentLabel" parent="Margin/ContentVBox/ContentControl/ContentMargin" index="0"]
+margin_right = 645.0
+margin_bottom = 375.0
 text = "Well guess who's PC has been hacked? 
 
 Yours? Yup.
@@ -36,7 +84,3 @@ If you do not manage to pay in time, then say goodbye to all your data and take 
 
 
 "
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
