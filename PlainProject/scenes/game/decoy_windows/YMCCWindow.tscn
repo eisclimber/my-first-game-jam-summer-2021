@@ -1,0 +1,45 @@
+[gd_scene format=2]
+
+[node name="YMCCWindow" type="WindowDialog"]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = -62.0
+margin_right = 366.0
+margin_bottom = 164.0
+window_title = "YMCC"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer"]
+margin_left = 20.0
+margin_top = 32.0
+margin_right = 506.0
+margin_bottom = 194.0
+text = "The Your Moms Credit Card offers an quick and easy option to pay. 
+
+
+Using our services will make you  feel like it's not even your money that you are sending... (Well it isn't so you should feel guitly!)
+
+
+P.S. It will also get you grounded."
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://resources/sprites/desktop/Desktop1.png" type="Texture" id=1]
+[ext_resource path="res://scenes/ui/ui_elements/button/GameButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/screens/CreditsScreen.gd" type="Script" id=3]
+
+[node name="CreditsScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 100
+custom_constants/margin_top = 60
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 60
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Margin"]
+margin_left = 100.0
+margin_top = 60.0
+margin_right = 1180.0
+margin_bottom = 660.0
+color = Color( 0, 0, 0, 0.631373 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin"]
+margin_left = 100.0
+margin_top = 60.0
+margin_right = 1180.0
+margin_bottom = 660.0
+custom_constants/margin_right = 60
+custom_constants/margin_top = 0
+custom_constants/margin_left = 60
+
+[node name="VBox" type="VBoxContainer" parent="Margin/MarginContainer"]
+margin_left = 60.0
+margin_right = 1020.0
+margin_bottom = 600.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContributorsLabel" type="Label" parent="Margin/MarginContainer/VBox"]
+margin_top = 271.0
+margin_right = 960.0
+margin_bottom = 284.0
+
+[node name="BackButton" parent="Margin/MarginContainer/VBox" instance=ExtResource( 2 )]
+margin_left = 400.0
+margin_top = 288.0
+margin_right = 560.0
+margin_bottom = 328.0
+rect_min_size = Vector2( 160, 40 )
+size_flags_horizontal = 4
+text = "Back to Menu"
+
+[connection signal="pressed" from="Margin/MarginContainer/VBox/BackButton" to="." method="_on_BackButton_pressed"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/ui/ui_elements/button/GameButton.tscn" type="PackedScene" id=1]
+
+[node name="AspectRatioGameButton" type="AspectRatioContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameButton" parent="." instance=ExtResource( 1 )]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+expand_icon = true

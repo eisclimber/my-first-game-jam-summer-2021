@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/game/hacked_window/HackedWindow.gd" type="Script" id=1]
+
+[node name="HackedWindow" type="WindowDialog"]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+window_title = "You have been hacked!!!!"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Well guess who's PC has been hacked? 
+
+Yours? Yup.
+
+You have been hacked!!!!
+
+All of your data has been encrypted and will be uploaded to our servers.
+After the upload is completed we will override your CPU which will litterally blow it up.
+
+The only way to get your data back and prevent your pc from exploding is to pay a ransom using the window on the right.
+We are not cheap so we want a fantistillion VeeDollars! You can transmit the ransom using the window on the right.
+Be warned you only have 15 minutes to pay.
+
+If you do not manage to pay in time, then say goodbye to all your data and take cover.
+
+
+
+
+
+
+"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

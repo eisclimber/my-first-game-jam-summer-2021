@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://resources/themes/default_theme.tres" type="Theme" id=1]
+
+[node name="YMCCWindow" type="WindowDialog"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -263.0
+margin_top = -145.0
+margin_right = 263.0
+margin_bottom = 145.0
+theme = ExtResource( 1 )
+window_title = "SmithCoin News"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer"]
+margin_left = 20.0
+margin_top = 50.0
+margin_right = 506.0
+margin_bottom = 239.0
+text = "News: This new and innovative Crypto Currency is taking over the globe
+
+The coin uses an unique algorithm to generate a new coin. 
+The alorithm prevents computers from generating a new coin.
+Thus forcing crypto-miners to search manually, making each coin feel like it has been handcrafted.
+
+Recently the the price of a SmithCoin rocked to a whopping fantastillion VeeDollars per coin.
+
+Get them while they are hot!"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

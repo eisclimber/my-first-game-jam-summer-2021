@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/screens/OptionsScreen.gd" type="Script" id=1]
+[ext_resource path="res://scenes/ui/ui_elements/button/GameButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/ui/options/OptionsVBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://resources/sprites/desktop/Desktop1.png" type="Texture" id=4]
+
+[node name="OptionsScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 100
+custom_constants/margin_top = 70
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 70
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Margin"]
+margin_left = 100.0
+margin_top = 70.0
+margin_right = 1180.0
+margin_bottom = 650.0
+color = Color( 0, 0, 0, 0.631373 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin"]
+margin_left = 100.0
+margin_top = 70.0
+margin_right = 1180.0
+margin_bottom = 650.0
+custom_constants/margin_right = 60
+custom_constants/margin_left = 60
+
+[node name="OptionsVBox" parent="Margin/MarginContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 60.0
+margin_right = 1020.0
+margin_bottom = 580.0
+
+[node name="BackButton" parent="Margin/MarginContainer/OptionsVBox" instance=ExtResource( 2 )]
+margin_left = 400.0
+margin_top = 390.0
+margin_right = 560.0
+margin_bottom = 430.0
+rect_min_size = Vector2( 160, 40 )
+size_flags_horizontal = 4
+text = "Back to Menu"
+
+[connection signal="pressed" from="Margin/MarginContainer/OptionsVBox/BackButton" to="." method="_on_BackButton_pressed"]

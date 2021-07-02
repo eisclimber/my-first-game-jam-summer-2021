@@ -1,3 +1,4 @@
+tool
 extends Area2D
 class_name PuzzleTile
 
@@ -5,6 +6,7 @@ signal should_be_moved(tile)
 
 const OVERLAY_COLOR = '99ff99'
 
+export (Texture) var tile_texture = null setget set_tile_texture
 export (bool) var can_be_moved = false setget set_can_be_moved
 export (bool) var is_empty = false
 export (float) var move_speed = 0.3
@@ -45,6 +47,12 @@ func move_to_tile(_tile_pos : Vector2, _tile_size : Vector2, _instant : bool = f
 		position = target_pos
 
 
+func disable_tile_on_complete() -> void:
+	$Collision.disabled = true
+	can_be_moved = false
+	hide()
+
+
 func set_can_be_moved(_can_be_moved : bool) -> void:
 	can_be_moved = _can_be_moved
 	$Collision.disabled = !_can_be_moved
@@ -54,8 +62,8 @@ func set_can_be_moved(_can_be_moved : bool) -> void:
 		modulate = Color.white
 
 
-func is_order_tile_pos(_tile_pos : Vector2) -> bool:
-	return order_pos == _tile_pos
+func is_in_order() -> bool:
+	return order_pos == curr_pos
 
 
 func set_is_empty(_is_empty : bool) -> void:
@@ -63,3 +71,9 @@ func set_is_empty(_is_empty : bool) -> void:
 	# Hide if it is the goal and disable collision
 	$Collision.disabled = _is_empty
 	visible = !_is_empty
+
+
+func set_tile_texture(_tile_texture : Texture) -> void:
+	tile_texture = _tile_texture
+	if has_node("Sprite"):
+		$Sprite.texture = _tile_texture

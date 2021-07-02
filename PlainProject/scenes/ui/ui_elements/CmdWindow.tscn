@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://resources/fonts/cmd_title_button_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://resources/fonts/cmd_title_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scenes/ui/ui_elements/button/GameButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/ui/ui_elements/CmdWindow.gd" type="Script" id=4]
+
+[node name="CmdWindow" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 2
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 2
+
+[node name="ContentVBox" type="VBoxContainer" parent="Margin"]
+margin_left = 4.0
+margin_top = 2.0
+margin_right = 1276.0
+margin_bottom = 718.0
+
+[node name="TitleHBox" type="HBoxContainer" parent="Margin/ContentVBox"]
+margin_right = 1272.0
+margin_bottom = 32.0
+size_flags_vertical = 0
+alignment = 1
+
+[node name="AppIcon" type="TextureRect" parent="Margin/ContentVBox/TitleHBox"]
+margin_bottom = 32.0
+
+[node name="TitleMargin" type="MarginContainer" parent="Margin/ContentVBox/TitleHBox"]
+margin_left = 4.0
+margin_right = 1241.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_constants/margin_top = 6
+custom_constants/margin_left = 10
+
+[node name="TitleLabel" type="Label" parent="Margin/ContentVBox/TitleHBox/TitleMargin"]
+margin_left = 10.0
+margin_top = 8.0
+margin_right = 1237.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="CloseButton" parent="Margin/ContentVBox/TitleHBox" instance=ExtResource( 3 )]
+margin_left = 1245.0
+margin_right = 1272.0
+margin_bottom = 32.0
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "X"
+flat = true
+
+[node name="ContentControl" type="Control" parent="Margin/ContentVBox"]
+margin_top = 36.0
+margin_right = 1272.0
+margin_bottom = 716.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Margin/ContentVBox/ContentControl"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 3
+color = Color( 0.0470588, 0.0470588, 0.0470588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContentLabel" type="Label" parent="Margin/ContentVBox/ContentControl"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/game/code_knots/CodeKnoxEncrypt.gd" type="Script" id=1]
+[ext_resource path="res://scenes/game/code_knots/CodeKnoxLogic.tscn" type="PackedScene" id=2]
+
+[node name="CodeKnoxEnchrypt" type="WindowDialog"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -233.0
+margin_top = -118.5
+margin_right = 233.0
+margin_bottom = 118.5
+popup_exclusive = true
+window_title = "CodeKnox Encrpyt"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HasNotPayedLabel" type="Label" parent="Margin"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 446.0
+margin_bottom = 225.0
+text = "Order Summary:
+
+
+1x VirtUnlock-Code
+1x VirtualDampHandShake
+
+
+
+
+Accepted payment methods:
+ StaySmall, YMCC, SmithCoin.
+
+"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HasPayedLabel" type="Label" parent="Margin"]
+visible = false
+margin_left = 20.0
+margin_top = 116.0
+margin_right = 446.0
+margin_bottom = 129.0
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CodeKnoxLogic" parent="." instance=ExtResource( 2 )]

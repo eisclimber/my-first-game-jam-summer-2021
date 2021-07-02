@@ -1,7 +1,7 @@
 extends Node
 
 # Change this to "user://" on deployment
-const DATA_ROOT = "user://"
+const DATA_ROOT = "res://"
 const JSON_TYPE = ".json"
 
 

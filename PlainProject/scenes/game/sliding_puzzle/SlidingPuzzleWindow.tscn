@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/game/sliding_puzzle/SlidingPuzzle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/game/sliding_puzzle/SlidingPuzzleWindow.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[node name="SlidingPuzzleWindow" type="WindowDialog"]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -204.5
+margin_top = -203.0
+margin_right = 204.5
+margin_bottom = 203.0
+mouse_filter = 2
+popup_exclusive = true
+window_title = "SmithCoin Generator_v4.2.0"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_use_anchors_": false
+}
+coin_texture = ExtResource( 3 )
+
+[node name="PuzzleCenter" type="Control" parent="."]
+margin_left = 204.5
+margin_top = 203.0
+margin_right = 244.5
+margin_bottom = 243.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SlidingPuzzle" parent="PuzzleCenter" instance=ExtResource( 1 )]
+position = Vector2( -193.922, -194.39 )
+scale = Vector2( 1.5, 1.5 )
+
+[connection signal="completed" from="PuzzleCenter/SlidingPuzzle" to="." method="_on_SlidingPuzzle_completed"]

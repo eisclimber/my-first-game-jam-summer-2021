@@ -11,48 +11,74 @@ export (Vector2) var tile_size = Vector2.ONE * 64
 
 var tiles = [[]]
 var empty_pos = Vector2()
+var num_tiles = 16
 
 
 func _ready():
 	randomize()
+	num_tiles = $Tiles.get_child_count()
 	setup_tiles()
 
 
 func setup_tiles() -> void:
-	var n = get_child_count()
-	for i in range(n):
-		var order_pos = idx_to_tile_pos(i)
-		get_child(i).setup(order_pos, tile_size)
-		var _error = get_child(i).connect("should_be_moved", self, "_on_PuzzleTile_should_be_moved")
+	$CompletedSprite.hide()
 	
-	# Fisher jates shuffle (prevent ordered tiles)
-	while(!tiles_in_order()):
-		for i in range(n):
-			var new_idx = randi() % n
-			move_child(get_child(i), new_idx)
-			get_child(i).curr_pos = idx_to_tile_pos(new_idx)
+	for i in range(num_tiles):
+		var order_pos = idx_to_tile_pos(i)
+		var tile = $Tiles.get_child(i)
+		tile.setup(order_pos, tile_size)
+		var _error = tile.connect("should_be_moved", self, "_on_PuzzleTile_should_be_moved")
+	
+	# Shuffle the tiles
+	shuffle_tiles()
 	
 	# Bottom right should be empty
-	get_child(n - 1).set_is_empty(true)
-	change_empty_pos_to(idx_to_tile_pos(n - 1))
+	var new_empty_pos = idx_to_tile_pos(num_tiles - 1)
+	for tile in $Tiles.get_children():
+		if tile.curr_pos == empty_pos:
+			tile.set_is_empty(true)
+			change_empty_pos_to(new_empty_pos, false)
 
 
-func change_empty_pos_to(_to : Vector2) -> void:
+func shuffle_tiles() -> void:
+	# Fisher yates shuffle (prevent ordered tiles)
+	while(are_tiles_in_order()):
+		for source_idx in range(num_tiles):
+			var source_tile = $Tiles.get_child(source_idx)
+			
+			var target_idx = randi() % num_tiles
+			var target_tile = $Tiles.get_child(target_idx)
+			var temp_pos = source_tile.curr_pos
+			
+			source_tile.move_to_tile(target_tile.curr_pos, tile_size, true)
+			target_tile.move_to_tile(temp_pos, tile_size, true)
+
+
+func change_empty_pos_to(_to : Vector2, _emit_completed : bool = true) -> void:
 	empty_pos = _to
 	
 	var valid_offsets = [empty_pos + Vector2.LEFT, empty_pos + Vector2.RIGHT, \
 		empty_pos + Vector2.UP, empty_pos + Vector2.DOWN] 
 	
-	for i in get_child_count():
-		var tile = get_child(i)
+	for i in range(num_tiles):
+		var tile = $Tiles.get_child(i)
 		tile.set_can_be_moved(tile.curr_pos in valid_offsets)
+	
+	if are_tiles_in_order() and _emit_completed:
+		complete_puzzle()
 
 
-func tiles_in_order() -> bool:
-	for y in tiles.size():
-		for x in tiles[y].size():
-			if !tiles[y][x].is_order_tile_pos(Vector2(x, y)):
-				return false
+func complete_puzzle():
+	for i in range(num_tiles):
+		$Tiles.get_child(i).disable_tile_on_complete()
+	$CompletedSprite.show()
+	emit_signal("completed")
+
+
+func are_tiles_in_order() -> bool:
+	for i in range(num_tiles):
+		if !$Tiles.get_child(i).is_in_order():
+			return false
 	return true
 
 
@@ -71,5 +97,9 @@ func tile_pos_to_idx(_tile_pos : Vector2) -> int:
 	return _tile_pos.y * tiles_per_dimension + _tile_pos.x
 
 
-func get_dimensions() -> Vector2:
-	return tile_size * tiles_per_dimension
+func center() -> void:
+	position = -tile_size * (tiles_per_dimension / 2.0) * scale
+
+
+func get_rect_size() -> Vector2:
+	return tile_size * tiles_per_dimension * scale

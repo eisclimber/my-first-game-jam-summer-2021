@@ -19,6 +19,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/ui/ui_elements/button/GameCheckButton.gd"
 }, {
+"base": "WindowDialog",
+"class": "CodeKnoxEnchrypt",
+"language": "GDScript",
+"path": "res://scenes/game/code_knots/CodeKnoxEncrypt.gd"
+}, {
+"base": "Node",
+"class": "CodeKnoxLogic",
+"language": "GDScript",
+"path": "res://scenes/game/code_knots/CodeKnoxLogic.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "DamageableKinematicBody",
 "language": "GDScript",
@@ -49,87 +59,29 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/ui/ui_elements/button/LocaleSelect.gd"
 }, {
-"base": "State",
-"class": "PlayerState",
-"language": "GDScript",
-"path": "res://scripts/finite_state_machine/player_fsm/states/PlayerState.gd"
-}, {
-"base": "StateController",
-"class": "PlayerStateController",
-"language": "GDScript",
-"path": "res://scripts/finite_state_machine/player_fsm/PlayerStateController.gd"
-}, {
-"base": "PlayerStateInAir",
-"class": "PlayerStateFall",
-"language": "GDScript",
-"path": "res://scripts/finite_state_machine/player_fsm/states/movement/in_air/PlayerStateFall.gd"
-}, {
-"base": "PlayerStateMovement",
-"class": "PlayerStateIdle",
-"language": "GDScript",
-"path": "res://scripts/finite_state_machine/player_fsm/states/movement/on_floor/PlayerStateIdle.gd"
-}, {
-"base": "PlayerStateMove",
-"class": "PlayerStateInAir",
-"language": "GDScript",
-"path": "res://scripts/finite_state_machine/player_fsm/states/movement/in_air/PlayerStateInAir.gd"
-}, {
-"base": "PlayerStateInAir",
-"class": "PlayerStateJump",
-"language": "GDScript",
-"path": "res://scripts/finite_state_machine/player_fsm/states/movement/in_air/PlayerStateJump.gd"
-}, {
-"base": "PlayerStateMovement",
-"class": "PlayerStateMove",
-"language": "GDScript",
-"path": "res://scripts/finite_state_machine/player_fsm/states/movement/on_floor/PlayerStateMove.gd"
-}, {
-"base": "PlayerState",
-"class": "PlayerStateMovement",
-"language": "GDScript",
-"path": "res://scripts/finite_state_machine/player_fsm/states/movement/PlayerStateMovement.gd"
-}, {
 "base": "Area2D",
 "class": "PuzzleTile",
 "language": "GDScript",
 "path": "res://scenes/game/sliding_puzzle/PuzzleTile.gd"
-}, {
-"base": "Node",
-"class": "State",
-"language": "GDScript",
-"path": "res://scripts/finite_state_machine/State.gd"
-}, {
-"base": "Node",
-"class": "StateController",
-"language": "GDScript",
-"path": "res://scripts/finite_state_machine/StateController.gd"
 } ]
 _global_script_class_icons={
 "BusVolumeSlider": "",
 "CheckGameButton": "",
+"CodeKnoxEnchrypt": "",
+"CodeKnoxLogic": "",
 "DamageableKinematicBody": "",
 "GameButton": "",
 "GameTextureButton": "",
 "HotlinkButton": "",
 "LabeledHSlider": "",
 "LocaleSelect": "",
-"PlayerState": "",
-"PlayerStateController": "",
-"PlayerStateFall": "",
-"PlayerStateIdle": "",
-"PlayerStateInAir": "",
-"PlayerStateJump": "",
-"PlayerStateMove": "",
-"PlayerStateMovement": "",
-"PuzzleTile": "",
-"State": "",
-"StateController": ""
+"PuzzleTile": ""
 }
 
 [application]
 
 config/name="Plain Project"
-run/main_scene="res://scenes/screens/TitleScreen.tscn"
+run/main_scene="res://scenes/screens/MainMenuScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -139,6 +91,15 @@ Settings="*res://scripts/global/Settings.gd"
 Global="*res://scripts/global/Global.gd"
 AudioHandler="*res://scripts/handler/AudioHandler.tscn"
 ScenePaths="*res://scripts/data/ScenePaths.gd"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+
+[global]
+
+theme=false
 
 [gui]
 

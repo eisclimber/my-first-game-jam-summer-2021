@@ -29,10 +29,12 @@ func _on_BusVolumeSlider_value_changed(_value : float) -> void:
 # Setter for the affected audio bus
 func set_audio_bus(_audio_bus : String) -> void:
 	audio_bus = _audio_bus
-	var label = "audio." + _audio_bus.to_lower() + '_bus'
-	# Rename for Political Correctness:)
-	if label == 'audio.master_bus':
-		label = 'audio.volume_bus'
 	if localization_enabled:
-		label = tr(label)
-	set_prefix(label + " : ")
+		var label = "audio." + _audio_bus.to_lower() + '_bus'
+		# Rename for Political Correctness:)
+		if label == 'audio.master_bus':
+			label = 'audio.volume_bus'
+		
+		set_prefix(tr(label) + ' : ')
+	else:
+		set_prefix(_audio_bus + ": ")
