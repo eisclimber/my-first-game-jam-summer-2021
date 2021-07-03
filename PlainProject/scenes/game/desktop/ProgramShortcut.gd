@@ -3,7 +3,7 @@ extends Control
 signal double_clicked()
 
 
-export (float) var double_click_time = 0.5
+export (float) var double_click_time = 1
 export (bool) var disabled = false setget set_disabled
 
 

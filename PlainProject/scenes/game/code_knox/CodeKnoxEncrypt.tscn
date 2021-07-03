@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/ui/ui_elements/CmdWindow.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/game/code_knots/CodeKnoxLogic.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/game/code_knots/CodeKnoxEncrypt.gd" type="Script" id=3]
+[ext_resource path="res://scenes/game/code_knox/CodeKnoxLogic.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/game/code_knox/CodeKnoxEncrypt.gd" type="Script" id=3]
 
 [node name="CodeKnoxEnchrypt" instance=ExtResource( 1 )]
 anchor_left = 0.5
@@ -30,43 +30,34 @@ ________________________________________
     StaySmall, YMCC, SmithCoin."
 
 [node name="Margin" parent="." index="0"]
-margin_right = 346.0
-margin_bottom = 281.0
+margin_right = 344.0
+margin_bottom = 279.0
 
 [node name="ContentVBox" parent="Margin" index="0"]
-margin_right = 342.0
-margin_bottom = 277.0
+margin_right = 338.0
+margin_bottom = 273.0
 
 [node name="TitleHBox" parent="Margin/ContentVBox" index="0"]
-margin_right = 338.0
-margin_bottom = 28.0
-
-[node name="AppIcon" parent="Margin/ContentVBox/TitleHBox" index="0"]
-margin_bottom = 28.0
+margin_right = 334.0
 
 [node name="TitleMargin" parent="Margin/ContentVBox/TitleHBox" index="1"]
-margin_right = 317.0
-margin_bottom = 28.0
+margin_right = 313.0
 
 [node name="TitleLabel" parent="Margin/ContentVBox/TitleHBox/TitleMargin" index="0"]
-margin_top = 6.0
-margin_right = 313.0
-margin_bottom = 27.0
+margin_right = 309.0
 text = "CodeKnox Encrypt"
 
 [node name="CloseButton" parent="Margin/ContentVBox/TitleHBox" index="2"]
-margin_left = 321.0
-margin_right = 338.0
-margin_bottom = 28.0
+margin_left = 317.0
+margin_right = 334.0
 
 [node name="ContentControl" parent="Margin/ContentVBox" index="1"]
-margin_top = 32.0
-margin_right = 338.0
-margin_bottom = 275.0
+margin_right = 334.0
+margin_bottom = 271.0
 
 [node name="ContentLabel" parent="Margin/ContentVBox/ContentControl/ContentMargin" index="0"]
-margin_right = 328.0
-margin_bottom = 233.0
+margin_right = 324.0
+margin_bottom = 229.0
 custom_colors/font_color = Color( 1, 1, 0, 1 )
 text = "Order Summary:
 

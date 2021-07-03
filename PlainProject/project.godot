@@ -27,12 +27,12 @@ _global_script_classes=[ {
 "base": "CmdWindow",
 "class": "CodeKnoxEnchrypt",
 "language": "GDScript",
-"path": "res://scenes/game/code_knots/CodeKnoxEncrypt.gd"
+"path": "res://scenes/game/code_knox/CodeKnoxEncrypt.gd"
 }, {
 "base": "Node",
 "class": "CodeKnoxLogic",
 "language": "GDScript",
-"path": "res://scenes/game/code_knots/CodeKnoxLogic.gd"
+"path": "res://scenes/game/code_knox/CodeKnoxLogic.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "DamageableKinematicBody",

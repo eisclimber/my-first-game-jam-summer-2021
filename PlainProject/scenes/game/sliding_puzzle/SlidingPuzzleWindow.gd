@@ -60,3 +60,7 @@ func get_drag_data(_position : Vector2):
 		set_drag_preview(preview)
 		
 		return {"yields_coin": yields_coin}
+
+
+func _on_CodeKnoxEnchrypt_new_code_knox(_code : PoolIntArray) -> void:
+	yields_coin = false

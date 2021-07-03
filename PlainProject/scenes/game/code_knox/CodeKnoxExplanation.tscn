@@ -1,0 +1,90 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/ui/ui_elements/CmdWindow.tscn" type="PackedScene" id=1]
+
+[node name="CodeKnoxExplanation" instance=ExtResource( 1 )]
+margin_right = -523.0
+margin_bottom = -153.0
+title = "Code Knox FAQ"
+text_content = "Q: What is CodeKnox?
+A: Code Knox is a Visual Encryption Service (VES) featuring an unique encryption method, making Code Knox by far the safest VES on the market.
+
+
+Q: What is the aim of this encryption?
+A: Safety.
+
+
+Q: How does it work?
+A: Use your start-code to find the right window and starting point. Follow the line and accumulate the letters on that line. They form the encrypted code. At the end of the line is another Letter. Search for it in the other windows and continue following the line, until you've gathered enough digits for your code.
+
+
+Q: Why the multiple windows?
+A: Letter recognition technology progressed within the last years, thus reducing the safety of other proven VES. Multiple windows make it impossible for computers to decode.
+
+
+Q: How to interpret my start-code?
+A: The first letter is for the window, the second for the starting point.
+
+
+Q: How long are the codes?
+A: The Codes are standardized to a length of 10 digits.
+
+
+Q: What is the answer to the ultimate question of life, the universe and everything?
+A: Answer is getting calculated.... Expected waiting time: 7 1/2 million years."
+
+[node name="Margin" parent="." index="0"]
+margin_right = 755.0
+margin_bottom = 565.0
+
+[node name="ContentVBox" parent="Margin" index="0"]
+margin_right = 749.0
+margin_bottom = 559.0
+
+[node name="TitleHBox" parent="Margin/ContentVBox" index="0"]
+margin_right = 745.0
+
+[node name="TitleMargin" parent="Margin/ContentVBox/TitleHBox" index="1"]
+margin_right = 724.0
+
+[node name="TitleLabel" parent="Margin/ContentVBox/TitleHBox/TitleMargin" index="0"]
+margin_right = 720.0
+text = "Code Knox FAQ"
+
+[node name="CloseButton" parent="Margin/ContentVBox/TitleHBox" index="2"]
+margin_left = 728.0
+margin_right = 745.0
+
+[node name="ContentControl" parent="Margin/ContentVBox" index="1"]
+margin_right = 745.0
+margin_bottom = 557.0
+
+[node name="ContentLabel" parent="Margin/ContentVBox/ContentControl/ContentMargin" index="0"]
+margin_right = 735.0
+margin_bottom = 515.0
+text = "Q: What is CodeKnox?
+A: Code Knox is a Visual Encryption Service (VES) featuring an unique encryption method, making Code Knox by far the safest VES on the market.
+
+
+Q: What is the aim of this encryption?
+A: Safety.
+
+
+Q: How does it work?
+A: Use your start-code to find the right window and starting point. Follow the line and accumulate the letters on that line. They form the encrypted code. At the end of the line is another Letter. Search for it in the other windows and continue following the line, until you've gathered enough digits for your code.
+
+
+Q: Why the multiple windows?
+A: Letter recognition technology progressed within the last years, thus reducing the safety of other proven VES. Multiple windows make it impossible for computers to decode.
+
+
+Q: How to interpret my start-code?
+A: The first letter is for the window, the second for the starting point.
+
+
+Q: How long are the codes?
+A: The Codes are standardized to a length of 10 digits.
+
+
+Q: What is the answer to the ultimate question of life, the universe and everything?
+A: Answer is getting calculated.... Expected waiting time: 7 1/2 million years."

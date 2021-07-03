@@ -2,7 +2,7 @@ tool
 extends CmdWindow
 class_name CodeKnoxEnchrypt
 
-signal new_code_knox(code)
+signal new_code_knox(_code)
 
 const HAS_NOT_PAYED_TEXT = "Order Summary: \n \n 1x VirtUnlock-Code \n" \
 	+ "1x VirtualDampHandShake \n \n Accepted payment methods: \n StaySmall, YMCC, SmithCoin."
@@ -39,7 +39,7 @@ func generate_new_code() -> void:
 	var code_info = $CodeKnoxLogic.get_random_code_info()
 	var code = $CodeKnoxLogic.generate_code(code_info["window"], code_info["key"])
 	
-	var new_text = HAS_PAYED_TEXT_FORMAT % [CodeKnoxLogic.NUM_DIGITS, code_info["window"], code_info["key"]]
+	var new_text = HAS_PAYED_TEXT_FORMAT % [$CodeKnoxLogic.NUM_DIGITS, code_info["window"], code_info["key"]]
 	content_label.text = new_text
 	
 #	print("CodeKnoxEnchrypt.gd: New code generated %s" % str(code))

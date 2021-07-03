@@ -20,43 +20,43 @@ text_content = "
         ..| 1|.../  __|  |___/./  /....../   _7_____  X
         ..|  |../ 3/..|  |..../ 9/.......|  |.......
         ..|  |./  /...| 5|....|  |..________________
-        ..|  |.|  |...|  |....|  |./   ____8________  J
+        ..|  |.|  |...|  |....|  |./   ____4________  J
         ..|  |.|  |___|  |....|  |.|  |..|  |.......
         ./  /..\\_________|....|  |.|  |..|  |......
         .|  |.................\\  \\_/  /..\\  \\____...
-        .\\ 8 \\__________.......\\__8__/....\\__0_   \\.
+        .\\ 8 \\__________.......\\__4__/....\\__0_   \\.
         ..\\__________2  \\......................|  |.
         ..............\\  \\.....................|  |.
                          O                       H"
 
 [node name="Margin" parent="." index="0"]
-margin_right = 440.0
-margin_bottom = 320.0
+margin_right = 438.0
+margin_bottom = 318.0
 
 [node name="ContentVBox" parent="Margin" index="0"]
-margin_right = 436.0
-margin_bottom = 316.0
+margin_right = 432.0
+margin_bottom = 312.0
 
 [node name="TitleHBox" parent="Margin/ContentVBox" index="0"]
-margin_right = 432.0
+margin_right = 428.0
 
 [node name="TitleMargin" parent="Margin/ContentVBox/TitleHBox" index="1"]
-margin_right = 401.0
+margin_right = 407.0
 
 [node name="TitleLabel" parent="Margin/ContentVBox/TitleHBox/TitleMargin" index="0"]
-margin_right = 397.0
+margin_right = 403.0
 text = "CodeKnox3"
 
 [node name="CloseButton" parent="Margin/ContentVBox/TitleHBox" index="2"]
-margin_left = 405.0
-margin_right = 432.0
+margin_left = 411.0
+margin_right = 428.0
 
 [node name="ContentControl" parent="Margin/ContentVBox" index="1"]
-margin_right = 432.0
-margin_bottom = 314.0
+margin_right = 428.0
+margin_bottom = 310.0
 
 [node name="ContentLabel" parent="Margin/ContentVBox/ContentControl/ContentMargin" index="0"]
-margin_right = 422.0
+margin_right = 418.0
 margin_bottom = 268.0
 text = "
            F            B     P     S
@@ -65,11 +65,11 @@ text = "
         ..| 1|.../  __|  |___/./  /....../   _7_____  X
         ..|  |../ 3/..|  |..../ 9/.......|  |.......
         ..|  |./  /...| 5|....|  |..________________
-        ..|  |.|  |...|  |....|  |./   ____8________  J
+        ..|  |.|  |...|  |....|  |./   ____4________  J
         ..|  |.|  |___|  |....|  |.|  |..|  |.......
         ./  /..\\_________|....|  |.|  |..|  |......
         .|  |.................\\  \\_/  /..\\  \\____...
-        .\\ 8 \\__________.......\\__8__/....\\__0_   \\.
+        .\\ 8 \\__________.......\\__4__/....\\__0_   \\.
         ..\\__________2  \\......................|  |.
         ..............\\  \\.....................|  |.
                          O                       H"

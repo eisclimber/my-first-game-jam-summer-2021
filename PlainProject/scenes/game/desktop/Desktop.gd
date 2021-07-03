@@ -26,10 +26,34 @@ func _on_InstallationIntro_installation_complete() -> void:
 
 func _on_HackedWindow_code_entered(_correct_code : bool) -> void:
 	if _correct_code:
-		print("Desktop.gd: Correct code entered.")
+		close_popups_after_valid_code()
 	else:
 		$GrayOverlay.show()
 		$WrongCodeDialog.popup_centered()
+
+
+func close_popups_after_valid_code() -> void:
+	print("Desktop.gd: Correct code entered.")
+#	$HBox/WindowArea/SlidingPuzzleWindow.hide()
+#	$HBox/WindowArea/SmithCoinNewsWindow.hide()
+#	$HBox/WindowArea/CodeKnots2.hide()
+#	$HBox/WindowArea/CodeKnoxExplanation.hide()
+#	$HBox/WindowArea/CodeKnots3.hide()
+#	$HBox/WindowArea/YMCCWindow.hide()
+#	$HBox/WindowArea/CodeKnots1.hide()
+#	$HBox/WindowArea/StaySmallWindow.hide()
+#	$HBox/WindowArea/CodeKnoxEnchrypt.hide()
+#	$HBox/WindowArea/HackedWindow.hide()
+#	$HBox/WindowArea/FriendTXT.hide()
+#	$HBox/TaskBar/Margin/TaskHBox/CmdHBox/SmithCoinButton.hide()
+#	$HBox/TaskBar/Margin/TaskHBox/CmdHBox/StaySmallButton.hide()
+#	$HBox/TaskBar/Margin/TaskHBox/CmdHBox/SlidingPuzzleButton.hide()
+#	$HBox/TaskBar/Margin/TaskHBox/CmdHBox/CodeKnox1Button.hide()
+#	$HBox/TaskBar/Margin/TaskHBox/CmdHBox/CodeKnox2Button.hide()
+#	$HBox/TaskBar/Margin/TaskHBox/CmdHBox/CodeKnox3Button.hide()
+#	$HBox/TaskBar/Margin/TaskHBox/CmdHBox/YMCCButton.hide()
+#	$HBox/TaskBar/Margin/TaskHBox/CmdHBox/CodeKnoxEnchryptButton.hide()
+#	$HBox/TaskBar/Margin/TaskHBox/CmdHBox/HackedWindowButton.hide()
 
 
 
@@ -76,6 +100,10 @@ func _on_CodeKnoxEnchryptButton_pressed() -> void:
 func _on_HackedWindowButton_pressed() -> void:
 	show_window_in_foreground($HBox/WindowArea/HackedWindow)
 
+func _on_CodeKnoxExplanationButton_pressed():
+	show_window_in_foreground($HBox/WindowArea/CodeKnoxExplanation)
+
+
 
 func _on_FriendlyTextButton_pressed():
 	if !$HBox/WindowArea/FriendTXT.visible:
@@ -84,6 +112,7 @@ func _on_FriendlyTextButton_pressed():
 
 func _on_InstallerButton_pressed():
 	$HBox/WindowArea/InstallationIntro.popup_centered()
+
 
 
 ## Popups
@@ -113,5 +142,3 @@ func _on_WrongCodeDialog_popup_hide() -> void:
 
 func _on_DesktopTimer_timeout() -> void:
 	var _error = get_tree().change_scene(ScenePaths.GAME_OVER_SCENE)
-
-

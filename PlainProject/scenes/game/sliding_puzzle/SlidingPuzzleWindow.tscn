@@ -19,8 +19,6 @@ title = "SC-Generator_v4.2.0"
 coin_texture = ExtResource( 4 )
 
 [node name="Margin" parent="." index="0"]
-margin_left = 2.0
-margin_top = 2.0
 margin_right = 336.0
 margin_bottom = 356.0
 
@@ -30,29 +28,20 @@ margin_bottom = 350.0
 
 [node name="TitleHBox" parent="Margin/ContentVBox" index="0"]
 margin_right = 326.0
-margin_bottom = 28.0
 mouse_filter = 2
-
-[node name="AppIcon" parent="Margin/ContentVBox/TitleHBox" index="0"]
-margin_bottom = 28.0
 
 [node name="TitleMargin" parent="Margin/ContentVBox/TitleHBox" index="1"]
 margin_right = 305.0
-margin_bottom = 28.0
 
 [node name="TitleLabel" parent="Margin/ContentVBox/TitleHBox/TitleMargin" index="0"]
-margin_top = 6.0
 margin_right = 301.0
-margin_bottom = 27.0
 text = "SC-Generator_v4.2.0"
 
 [node name="CloseButton" parent="Margin/ContentVBox/TitleHBox" index="2"]
 margin_left = 309.0
 margin_right = 326.0
-margin_bottom = 28.0
 
 [node name="ContentControl" parent="Margin/ContentVBox" index="1"]
-margin_top = 32.0
 margin_right = 326.0
 margin_bottom = 348.0
 
