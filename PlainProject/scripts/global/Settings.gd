@@ -29,9 +29,6 @@ func _ready() -> void:
 
 ################# Getter ##################
 
-func is_hard_input_enabled() -> bool:
-	return settings["hard_input_enabled"]
-
 
 func is_fullscreen() -> bool:
 	return settings["fullscreen"]

@@ -1,24 +1,48 @@
+tool
 extends CmdWindow
+class_name SlidingPuzzleWindow
+
+const COIN_GENERATED_TEXT = "Coin generated."
 
 export (Texture) var coin_texture = null
 export (Vector2) var coin_preview_size = Vector2.ONE * 64
 export (Vector2) var content_border_size = Vector2.ONE * 60
 export (bool) var yields_coin = false
 
-onready var slinding_puzzle = $Margin/ContentVBox/ContentControl/ContentMargin/CenterContainer/CenterControl/SlidingPuzzle
+
+onready var sliding_puzzle = $Margin/ContentVBox/ContentControl/ContentMargin/CenterContainer/CenterControl/SlidingPuzzle
 
 
 func _ready():
-	slinding_puzzle.center()
+	sliding_puzzle.center()
 	
-	var content_rect_size = slinding_puzzle.get_rect_size() + content_border_size
+	var content_rect_size = sliding_puzzle.get_rect_size() + content_border_size
 	rect_min_size = content_rect_size
 	rect_size = content_rect_size
 
 
+func _gui_input(_event : InputEvent) -> void:
+	if _event is InputEventMouseButton and _event.button_index == BUTTON_LEFT and _event.pressed:
+		# Only allow puzzle input if in front
+		if is_in_front():
+			var relative_click_pos = _event.global_position - sliding_puzzle.global_position
+			sliding_puzzle.move_tile_at_position(relative_click_pos)
+		else:
+			# If not in front, request movement
+			emit_signal("move_to_front_requested", self)
+
+
 func _on_SlidingPuzzle_completed() -> void:
 	yields_coin = true
-	mouse_filter = MOUSE_FILTER_STOP
+	set_text_content(COIN_GENERATED_TEXT)
+
+
+func is_in_front() -> bool:
+	if has_node(".."):
+		var siblings = get_parent().get_children()
+		var n = get_parent().get_child_count()
+		return (self == siblings[n - 1])
+	return true
 
 
 func get_drag_data(_position : Vector2):
@@ -36,5 +60,3 @@ func get_drag_data(_position : Vector2):
 		set_drag_preview(preview)
 		
 		return {"yields_coin": yields_coin}
-
-

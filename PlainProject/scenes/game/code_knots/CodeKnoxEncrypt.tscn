@@ -11,59 +11,75 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -151.0
 margin_top = -116.0
-margin_right = 151.0
-margin_bottom = 116.0
+margin_right = 195.0
+margin_bottom = 165.0
 script = ExtResource( 3 )
 title = "CodeKnox Encrypt"
 text_content = "Order Summary:
 
 
 1x VirtUnlock-Code
-1x VirtualDampHandShake
+
+
+________________________________________
+       Price: 1 fantistillion VeeDollars
 
 
 
-Accepted payment methods:
- StaySmall, YMCC, SmithCoin."
+* Accepted payment methods:
+    StaySmall, YMCC, SmithCoin."
 
 [node name="Margin" parent="." index="0"]
-margin_right = 302.0
-margin_bottom = 232.0
+margin_right = 346.0
+margin_bottom = 281.0
 
 [node name="ContentVBox" parent="Margin" index="0"]
-margin_right = 298.0
-margin_bottom = 228.0
+margin_right = 342.0
+margin_bottom = 277.0
 
 [node name="TitleHBox" parent="Margin/ContentVBox" index="0"]
-margin_right = 294.0
+margin_right = 338.0
+margin_bottom = 28.0
+
+[node name="AppIcon" parent="Margin/ContentVBox/TitleHBox" index="0"]
+margin_bottom = 28.0
 
 [node name="TitleMargin" parent="Margin/ContentVBox/TitleHBox" index="1"]
-margin_right = 263.0
+margin_right = 317.0
+margin_bottom = 28.0
 
 [node name="TitleLabel" parent="Margin/ContentVBox/TitleHBox/TitleMargin" index="0"]
-margin_right = 259.0
+margin_top = 6.0
+margin_right = 313.0
+margin_bottom = 27.0
 text = "CodeKnox Encrypt"
 
 [node name="CloseButton" parent="Margin/ContentVBox/TitleHBox" index="2"]
-margin_left = 267.0
-margin_right = 294.0
+margin_left = 321.0
+margin_right = 338.0
+margin_bottom = 28.0
 
 [node name="ContentControl" parent="Margin/ContentVBox" index="1"]
-margin_right = 294.0
-margin_bottom = 226.0
+margin_top = 32.0
+margin_right = 338.0
+margin_bottom = 275.0
 
 [node name="ContentLabel" parent="Margin/ContentVBox/ContentControl/ContentMargin" index="0"]
-margin_right = 284.0
-margin_bottom = 180.0
+margin_right = 328.0
+margin_bottom = 233.0
+custom_colors/font_color = Color( 1, 1, 0, 1 )
 text = "Order Summary:
 
 
 1x VirtUnlock-Code
-1x VirtualDampHandShake
+
+
+________________________________________
+       Price: 1 fantistillion VeeDollars
 
 
 
-Accepted payment methods:
- StaySmall, YMCC, SmithCoin."
+* Accepted payment methods:
+    StaySmall, YMCC, SmithCoin."
 
 [node name="CodeKnoxLogic" parent="." index="1" instance=ExtResource( 2 )]

@@ -35,7 +35,7 @@ func setup_tiles() -> void:
 	# Bottom right should be empty
 	var new_empty_pos = idx_to_tile_pos(num_tiles - 1)
 	for tile in $Tiles.get_children():
-		if tile.curr_pos == empty_pos:
+		if tile.curr_pos == new_empty_pos:
 			tile.set_is_empty(true)
 			change_empty_pos_to(new_empty_pos, false)
 
@@ -82,6 +82,15 @@ func are_tiles_in_order() -> bool:
 	return true
 
 
+# Allows input event behind a mouse filter
+func move_tile_at_position(_pos : Vector2):
+	var click_tile_pos = (_pos / tile_size).floor()
+	for tile in $Tiles.get_children():
+		if tile.curr_pos == click_tile_pos:
+			tile.move_if_allowed()
+
+
+
 func _on_PuzzleTile_should_be_moved(_tile : Node) -> void:
 	if _tile:
 		var new_empty_pos = _tile.curr_pos
@@ -94,7 +103,7 @@ func idx_to_tile_pos(_idx : int) -> Vector2:
 
 
 func tile_pos_to_idx(_tile_pos : Vector2) -> int:
-	return _tile_pos.y * tiles_per_dimension + _tile_pos.x
+	return int(_tile_pos.y) * tiles_per_dimension + int(_tile_pos.x)
 
 
 func center() -> void:

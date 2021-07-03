@@ -36,6 +36,11 @@ func _input_event(_viewport: Object, _event : InputEvent, _shape_idx : int) -> v
 		emit_signal("should_be_moved", self)
 
 
+func move_if_allowed():
+	if can_be_moved:
+		emit_signal("should_be_moved", self)
+
+
 func move_to_tile(_tile_pos : Vector2, _tile_size : Vector2, _instant : bool = false) -> void:
 	curr_pos = _tile_pos
 	var target_pos = _tile_pos * _tile_size + _tile_size / 2

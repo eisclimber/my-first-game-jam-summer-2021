@@ -16,6 +16,7 @@ __meta__ = {
 [node name="Margin" type="MarginContainer" parent="."]
 margin_right = 1280.0
 margin_bottom = 720.0
+mouse_filter = 2
 custom_constants/margin_right = 4
 custom_constants/margin_top = 2
 custom_constants/margin_left = 4
@@ -26,6 +27,7 @@ margin_left = 4.0
 margin_top = 2.0
 margin_right = 1276.0
 margin_bottom = 716.0
+mouse_filter = 2
 
 [node name="TitleHBox" type="HBoxContainer" parent="Margin/ContentVBox"]
 margin_right = 1272.0
@@ -35,11 +37,13 @@ alignment = 1
 
 [node name="AppIcon" type="TextureRect" parent="Margin/ContentVBox/TitleHBox"]
 margin_bottom = 32.0
+mouse_filter = 2
 
 [node name="TitleMargin" type="MarginContainer" parent="Margin/ContentVBox/TitleHBox"]
 margin_left = 4.0
 margin_right = 1241.0
 margin_bottom = 32.0
+mouse_filter = 2
 size_flags_horizontal = 3
 custom_constants/margin_top = 6
 custom_constants/margin_left = 10
@@ -68,6 +72,7 @@ flat = true
 margin_top = 36.0
 margin_right = 1272.0
 margin_bottom = 714.0
+mouse_filter = 2
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -76,6 +81,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="Margin/ContentVBox/ContentControl"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 size_flags_vertical = 3
 color = Color( 0.0470588, 0.0470588, 0.0470588, 1 )
 __meta__ = {
@@ -85,6 +91,7 @@ __meta__ = {
 [node name="ContentMargin" type="MarginContainer" parent="Margin/ContentVBox/ContentControl"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 16

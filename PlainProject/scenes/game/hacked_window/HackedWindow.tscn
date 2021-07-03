@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/ui/ui_elements/CmdWindow.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/game/hacked_window/HackedWindow.gd" type="Script" id=2]
+[ext_resource path="res://scenes/ui/ui_elements/button/GameButton.gd" type="Script" id=3]
 
 [node name="HackedWindow" instance=ExtResource( 1 )]
 anchor_left = 0.5
@@ -8,15 +10,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -331.5
-margin_top = -165.0
+margin_top = -182.5
 margin_right = 331.5
-margin_bottom = 165.0
+margin_bottom = 182.5
+script = ExtResource( 2 )
 title = "You have been hacked!!!!"
 text_content = "Well guess who's PC has been hacked? 
 
 Yours? Yup.
 
-You have been hacked!!!!
+You have been hacked!!!! Hihihi:3
 
 All of your data has been encrypted and will be uploaded to our servers.
 After the upload is completed we will override your CPU which will litterally blow it up.
@@ -25,49 +28,52 @@ The only way to get your data back and prevent your pc from exploding is to pay 
 We are not cheap so we want a fantistillion VeeDollars! You can transmit the ransom using the window on the right.
 Be warned you only have 15 minutes to pay.
 
-If you do not manage to pay in time, then say goodbye to all your data and take cover.
-
-
-
-
-
-
-"
+If you do not manage to pay in time, then say goodbye to your data and take cover;)"
 
 [node name="Margin" parent="." index="0"]
 margin_right = 663.0
-margin_bottom = 330.0
+margin_bottom = 365.0
 
 [node name="ContentVBox" parent="Margin" index="0"]
 margin_right = 659.0
-margin_bottom = 326.0
+margin_bottom = 361.0
 
 [node name="TitleHBox" parent="Margin/ContentVBox" index="0"]
 margin_right = 655.0
+margin_bottom = 28.0
+
+[node name="AppIcon" parent="Margin/ContentVBox/TitleHBox" index="0"]
+margin_bottom = 28.0
 
 [node name="TitleMargin" parent="Margin/ContentVBox/TitleHBox" index="1"]
-margin_right = 624.0
+margin_right = 634.0
+margin_bottom = 28.0
 
 [node name="TitleLabel" parent="Margin/ContentVBox/TitleHBox/TitleMargin" index="0"]
-margin_right = 620.0
+margin_top = 6.0
+margin_right = 630.0
+margin_bottom = 27.0
 text = "You have been hacked!!!!"
 
 [node name="CloseButton" parent="Margin/ContentVBox/TitleHBox" index="2"]
-margin_left = 628.0
+margin_left = 638.0
 margin_right = 655.0
+margin_bottom = 28.0
 
 [node name="ContentControl" parent="Margin/ContentVBox" index="1"]
+margin_top = 32.0
 margin_right = 655.0
-margin_bottom = 324.0
+margin_bottom = 359.0
 
 [node name="ContentLabel" parent="Margin/ContentVBox/ContentControl/ContentMargin" index="0"]
 margin_right = 645.0
-margin_bottom = 375.0
+margin_bottom = 317.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "Well guess who's PC has been hacked? 
 
 Yours? Yup.
 
-You have been hacked!!!!
+You have been hacked!!!! Hihihi:3
 
 All of your data has been encrypted and will be uploaded to our servers.
 After the upload is completed we will override your CPU which will litterally blow it up.
@@ -76,11 +82,44 @@ The only way to get your data back and prevent your pc from exploding is to pay 
 We are not cheap so we want a fantistillion VeeDollars! You can transmit the ransom using the window on the right.
 Be warned you only have 15 minutes to pay.
 
-If you do not manage to pay in time, then say goodbye to all your data and take cover.
+If you do not manage to pay in time, then say goodbye to your data and take cover;)"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin/ContentVBox/ContentControl/ContentMargin" index="1"]
+margin_left = 16.0
+margin_top = 302.0
+margin_right = 645.0
+margin_bottom = 317.0
+size_flags_vertical = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
+[node name="CaretLabel" type="Label" parent="Margin/ContentVBox/ContentControl/ContentMargin/HBoxContainer" index="0"]
+margin_top = 1.0
+margin_right = 7.0
+margin_bottom = 14.0
+text = ">"
 
+[node name="CodeLineEdit" type="LineEdit" parent="Margin/ContentVBox/ContentControl/ContentMargin/HBoxContainer" index="1"]
+margin_left = 11.0
+margin_right = 539.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+max_length = 10
+placeholder_text = "[Enter VirtUnlock Code]"
+placeholder_alpha = 1.0
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
+[node name="ConfirmCodeButton" type="Button" parent="Margin/ContentVBox/ContentControl/ContentMargin/HBoxContainer" index="2"]
+margin_left = 543.0
+margin_right = 629.0
+margin_bottom = 15.0
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+text = "Confirm Code"
+script = ExtResource( 3 )
 
-
-"
+[connection signal="pressed" from="Margin/ContentVBox/ContentControl/ContentMargin/HBoxContainer/ConfirmCodeButton" to="." method="_on_ConfirmCodeButton_pressed"]

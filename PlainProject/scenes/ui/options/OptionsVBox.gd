@@ -3,7 +3,6 @@ extends VBoxContainer
 
 func _ready() -> void:
 	$FullscreenHBox/FullscreenCheckButton.pressed = Settings.is_fullscreen()
-	$HardmodeHBox/HardmodeCheckButton.pressed = Settings.is_hard_input_enabled()
 
 
 # Enable/Disable fullscreen
