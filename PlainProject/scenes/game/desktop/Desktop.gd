@@ -7,16 +7,30 @@ onready var window_area = $HBox/WindowArea
 func _ready() -> void:
 	if !Engine.is_editor_hint():
 		$GrayOverlay.hide()
-		$AnimationPlayer.play("popup_windows")
+		$AnimationPlayer.play("intro")
+
+
+## Intro Install
+
+func _on_ProgramShortcut_double_clicked() -> void:
+	$HBox/TaskBar/Margin/TaskHBox/IntroHBox/InstallerButton.show()
+	$HBox/WindowArea/InstallationIntro.popup_centered()
+
+
+func _on_InstallationIntro_installation_complete() -> void:
+	$AnimationPlayer.play("popup_windows")
+
 
 
 ## Code entered
+
 func _on_HackedWindow_code_entered(_correct_code : bool) -> void:
 	if _correct_code:
 		print("Desktop.gd: Correct code entered.")
 	else:
 		$GrayOverlay.show()
 		$WrongCodeDialog.popup_centered()
+
 
 
 ## Window Maximation
@@ -63,6 +77,15 @@ func _on_HackedWindowButton_pressed() -> void:
 	show_window_in_foreground($HBox/WindowArea/HackedWindow)
 
 
+func _on_FriendlyTextButton_pressed():
+	if !$HBox/WindowArea/FriendTXT.visible:
+		$HBox/WindowArea/FriendTXT.popup()
+
+
+func _on_InstallerButton_pressed():
+	$HBox/WindowArea/InstallationIntro.popup_centered()
+
+
 ## Popups
 func _on_CmdWindow_move_to_front_requested(_window : Node) -> void:
 	show_window_in_foreground(_window)
@@ -90,3 +113,5 @@ func _on_WrongCodeDialog_popup_hide() -> void:
 
 func _on_DesktopTimer_timeout() -> void:
 	var _error = get_tree().change_scene(ScenePaths.GAME_OVER_SCENE)
+
+

@@ -2,7 +2,7 @@ extends Control
 
 
 func _on_PlayButton_pressed():
-	var _error = get_tree().change_scene(ScenePaths.GAME_SCENE)
+	var _error = get_tree().change_scene(ScenePaths.INTRO_SCENE)
 
 
 func _on_OptionsButton_pressed():

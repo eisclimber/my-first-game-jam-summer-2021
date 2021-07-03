@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://resources/sprites/desktop/Icon0.png" type="Texture" id=1]
 [ext_resource path="res://resources/sprites/desktop/Desktop1.png" type="Texture" id=2]
@@ -21,6 +21,27 @@
 [ext_resource path="res://resources/themes/taskbar_theme.tres" type="Theme" id=19]
 [ext_resource path="res://resources/sprites/desktop/Icon7.png" type="Texture" id=20]
 [ext_resource path="res://scenes/game/desktop/DesktopTimer.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/game/desktop/ProgramShortcut.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scenes/game/intro sequence/initial_txt.tscn" type="PackedScene" id=23]
+[ext_resource path="res://scenes/game/intro sequence/intro_installation.tscn" type="PackedScene" id=24]
+
+[sub_resource type="Animation" id=2]
+resource_name = "intro"
+length = 0.1
+tracks/0/type = "method"
+tracks/0/path = NodePath("HBox/WindowArea/FriendTXT")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ Rect2( 0, 0, 0, 0 ) ],
+"method": "popup"
+} ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "popup_windows"
@@ -344,7 +365,61 @@ tracks/18/keys = {
 "method": "hide"
 }, {
 "args": [  ],
-"method": "show"
+"method": "start"
+} ]
+}
+tracks/19/type = "method"
+tracks/19/path = NodePath("HBox/WindowArea/InstallationIntro")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+} ]
+}
+tracks/20/type = "method"
+tracks/20/path = NodePath("HBox/WindowArea/FriendTXT")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+} ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("HBox/TaskBar/Margin/TaskHBox/IntroHBox/FriendlyTextButton:disabled")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/22/type = "method"
+tracks/22/path = NodePath("HBox/TaskBar/Margin/TaskHBox/IntroHBox/InstallerButton")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
 } ]
 }
 
@@ -374,11 +449,18 @@ __meta__ = {
 
 [node name="WindowArea" type="Control" parent="HBox"]
 margin_right = 1280.0
-margin_bottom = 653.0
+margin_bottom = 658.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="ProgramShortcut" parent="HBox/WindowArea" instance=ExtResource( 22 )]
+margin_left = -600.563
+margin_top = -282.134
+margin_right = -600.563
+margin_bottom = -282.134
+
 [node name="SlidingPuzzleWindow" parent="HBox/WindowArea" instance=ExtResource( 16 )]
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -390,6 +472,7 @@ margin_bottom = 642.0
 yields_coin = true
 
 [node name="SmithCoinNewsWindow" parent="HBox/WindowArea" instance=ExtResource( 10 )]
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -400,6 +483,7 @@ margin_right = 571.312
 margin_bottom = 658.464
 
 [node name="CodeKnots2" parent="HBox/WindowArea" instance=ExtResource( 18 )]
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -410,6 +494,7 @@ margin_right = 930.915
 margin_bottom = 350.408
 
 [node name="CodeKnots3" parent="HBox/WindowArea" instance=ExtResource( 12 )]
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -420,6 +505,7 @@ margin_right = 1069.13
 margin_bottom = 649.534
 
 [node name="YMCCWindow" parent="HBox/WindowArea" instance=ExtResource( 15 )]
+visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 603.636
@@ -428,6 +514,7 @@ margin_right = 1234.64
 margin_bottom = 653.72
 
 [node name="CodeKnots1" parent="HBox/WindowArea" instance=ExtResource( 11 )]
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -438,6 +525,7 @@ margin_right = 1277.02
 margin_bottom = 642.045
 
 [node name="StaySmallWindow" parent="HBox/WindowArea" instance=ExtResource( 14 )]
+visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 774.887
@@ -446,16 +534,18 @@ margin_right = 1280.89
 margin_bottom = 414.0
 
 [node name="CodeKnoxEnchrypt" parent="HBox/WindowArea" instance=ExtResource( 13 )]
+visible = false
 anchor_left = 0.0
 anchor_top = 0.00170588
 anchor_right = 0.0
-anchor_bottom = 0.00170588
+anchor_bottom = 0.0017059
 margin_left = 753.775
 margin_top = 12.7348
 margin_right = 1207.77
 margin_bottom = 281.735
 
 [node name="HackedWindow" parent="HBox/WindowArea" instance=ExtResource( 17 )]
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -465,8 +555,21 @@ margin_top = 4.0
 margin_right = 756.0
 margin_bottom = 439.0
 
+[node name="FriendTXT" parent="HBox/WindowArea" instance=ExtResource( 23 )]
+visible = false
+margin_left = -538.061
+margin_top = -211.742
+margin_right = -212.061
+margin_bottom = -79.7422
+
+[node name="InstallationIntro" parent="HBox/WindowArea" instance=ExtResource( 24 )]
+margin_left = -232.338
+margin_top = -49.7965
+margin_right = 189.662
+margin_bottom = 208.204
+
 [node name="TaskBar" type="PanelContainer" parent="HBox"]
-margin_top = 657.0
+margin_top = 662.0
 margin_right = 1280.0
 margin_bottom = 720.0
 theme = ExtResource( 19 )
@@ -476,7 +579,7 @@ __meta__ = {
 
 [node name="Margin" type="MarginContainer" parent="HBox/TaskBar"]
 margin_right = 1280.0
-margin_bottom = 63.0
+margin_bottom = 58.0
 custom_constants/margin_right = 8
 custom_constants/margin_top = 4
 custom_constants/margin_left = 8
@@ -489,15 +592,15 @@ __meta__ = {
 margin_left = 8.0
 margin_top = 4.0
 margin_right = 1272.0
-margin_bottom = 59.0
+margin_bottom = 54.0
 
 [node name="DecoysHBox" type="HBoxContainer" parent="HBox/TaskBar/Margin/TaskHBox"]
-margin_right = 320.0
-margin_bottom = 55.0
+margin_right = 266.0
+margin_bottom = 50.0
 
 [node name="OsButton" parent="HBox/TaskBar/Margin/TaskHBox/DecoysHBox" instance=ExtResource( 3 )]
 margin_right = 50.0
-margin_bottom = 55.0
+margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 icon = ExtResource( 1 )
 flat = true
@@ -506,7 +609,7 @@ expand_icon = true
 [node name="ExplorerButton" parent="HBox/TaskBar/Margin/TaskHBox/DecoysHBox" instance=ExtResource( 3 )]
 margin_left = 54.0
 margin_right = 104.0
-margin_bottom = 55.0
+margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 disabled = true
 icon = ExtResource( 7 )
@@ -515,45 +618,59 @@ expand_icon = true
 [node name="BrowserButton" parent="HBox/TaskBar/Margin/TaskHBox/DecoysHBox" instance=ExtResource( 3 )]
 margin_left = 108.0
 margin_right = 158.0
-margin_bottom = 55.0
+margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 disabled = true
 icon = ExtResource( 6 )
 expand_icon = true
 
-[node name="WriterButton" parent="HBox/TaskBar/Margin/TaskHBox/DecoysHBox" instance=ExtResource( 3 )]
+[node name="SteamButton" parent="HBox/TaskBar/Margin/TaskHBox/DecoysHBox" instance=ExtResource( 3 )]
 margin_left = 162.0
 margin_right = 212.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 50, 50 )
-disabled = true
-icon = ExtResource( 9 )
-expand_icon = true
-
-[node name="SteamButton" parent="HBox/TaskBar/Margin/TaskHBox/DecoysHBox" instance=ExtResource( 3 )]
-margin_left = 216.0
-margin_right = 266.0
-margin_bottom = 55.0
+margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 disabled = true
 icon = ExtResource( 5 )
 expand_icon = true
 
 [node name="MinecraftButton" parent="HBox/TaskBar/Margin/TaskHBox/DecoysHBox" instance=ExtResource( 3 )]
-margin_left = 270.0
-margin_right = 320.0
-margin_bottom = 55.0
+margin_left = 216.0
+margin_right = 266.0
+margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 disabled = true
 icon = ExtResource( 8 )
 expand_icon = true
 
+[node name="IntroHBox" type="HBoxContainer" parent="HBox/TaskBar/Margin/TaskHBox"]
+margin_left = 270.0
+margin_right = 320.0
+margin_bottom = 50.0
+
+[node name="FriendlyTextButton" parent="HBox/TaskBar/Margin/TaskHBox/IntroHBox" instance=ExtResource( 3 )]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+disabled = true
+icon = ExtResource( 9 )
+expand_icon = true
+
+[node name="InstallerButton" parent="HBox/TaskBar/Margin/TaskHBox/IntroHBox" instance=ExtResource( 3 )]
+visible = false
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+icon = ExtResource( 20 )
+expand_icon = true
+
 [node name="CmdHBox" type="HBoxContainer" parent="HBox/TaskBar/Margin/TaskHBox"]
 margin_left = 324.0
-margin_right = 806.0
-margin_bottom = 55.0
+margin_right = 324.0
+margin_bottom = 50.0
 
 [node name="SmithCoinButton" parent="HBox/TaskBar/Margin/TaskHBox/CmdHBox" instance=ExtResource( 3 )]
+visible = false
 margin_right = 50.0
 margin_bottom = 55.0
 rect_min_size = Vector2( 50, 50 )
@@ -561,6 +678,55 @@ icon = ExtResource( 20 )
 expand_icon = true
 
 [node name="StaySmallButton" parent="HBox/TaskBar/Margin/TaskHBox/CmdHBox" instance=ExtResource( 3 )]
+visible = false
+margin_right = 50.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 50, 50 )
+icon = ExtResource( 20 )
+expand_icon = true
+
+[node name="SlidingPuzzleButton" parent="HBox/TaskBar/Margin/TaskHBox/CmdHBox" instance=ExtResource( 3 )]
+visible = false
+margin_right = 50.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 50, 50 )
+icon = ExtResource( 20 )
+expand_icon = true
+
+[node name="CodeKnox1Button" parent="HBox/TaskBar/Margin/TaskHBox/CmdHBox" instance=ExtResource( 3 )]
+visible = false
+margin_right = 50.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 50, 50 )
+icon = ExtResource( 20 )
+expand_icon = true
+
+[node name="CodeKnox2Button" parent="HBox/TaskBar/Margin/TaskHBox/CmdHBox" instance=ExtResource( 3 )]
+visible = false
+margin_right = 50.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 50, 50 )
+icon = ExtResource( 20 )
+expand_icon = true
+
+[node name="CodeKnox3Button" parent="HBox/TaskBar/Margin/TaskHBox/CmdHBox" instance=ExtResource( 3 )]
+visible = false
+margin_right = 50.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 50, 50 )
+icon = ExtResource( 20 )
+expand_icon = true
+
+[node name="YMCCButton" parent="HBox/TaskBar/Margin/TaskHBox/CmdHBox" instance=ExtResource( 3 )]
+visible = false
+margin_right = 50.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 50, 50 )
+icon = ExtResource( 20 )
+expand_icon = true
+
+[node name="CodeKnoxEnchryptButton" parent="HBox/TaskBar/Margin/TaskHBox/CmdHBox" instance=ExtResource( 3 )]
+visible = false
 margin_left = 54.0
 margin_right = 104.0
 margin_bottom = 55.0
@@ -568,69 +734,22 @@ rect_min_size = Vector2( 50, 50 )
 icon = ExtResource( 20 )
 expand_icon = true
 
-[node name="SlidingPuzzleButton" parent="HBox/TaskBar/Margin/TaskHBox/CmdHBox" instance=ExtResource( 3 )]
-margin_left = 108.0
-margin_right = 158.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 50, 50 )
-icon = ExtResource( 20 )
-expand_icon = true
-
-[node name="CodeKnox1Button" parent="HBox/TaskBar/Margin/TaskHBox/CmdHBox" instance=ExtResource( 3 )]
-margin_left = 162.0
-margin_right = 212.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 50, 50 )
-icon = ExtResource( 20 )
-expand_icon = true
-
-[node name="CodeKnox2Button" parent="HBox/TaskBar/Margin/TaskHBox/CmdHBox" instance=ExtResource( 3 )]
-margin_left = 216.0
-margin_right = 266.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 50, 50 )
-icon = ExtResource( 20 )
-expand_icon = true
-
-[node name="CodeKnox3Button" parent="HBox/TaskBar/Margin/TaskHBox/CmdHBox" instance=ExtResource( 3 )]
-margin_left = 270.0
-margin_right = 320.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 50, 50 )
-icon = ExtResource( 20 )
-expand_icon = true
-
-[node name="YMCCButton" parent="HBox/TaskBar/Margin/TaskHBox/CmdHBox" instance=ExtResource( 3 )]
-margin_left = 324.0
-margin_right = 374.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 50, 50 )
-icon = ExtResource( 20 )
-expand_icon = true
-
-[node name="CodeKnoxEnchryptButton" parent="HBox/TaskBar/Margin/TaskHBox/CmdHBox" instance=ExtResource( 3 )]
-margin_left = 378.0
-margin_right = 428.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 50, 50 )
-icon = ExtResource( 20 )
-expand_icon = true
-
 [node name="HackedWindowButton" parent="HBox/TaskBar/Margin/TaskHBox/CmdHBox" instance=ExtResource( 3 )]
-margin_left = 432.0
-margin_right = 482.0
+visible = false
+margin_right = 50.0
 margin_bottom = 55.0
 rect_min_size = Vector2( 50, 50 )
 icon = ExtResource( 20 )
 expand_icon = true
 
 [node name="SpacerControl" type="Control" parent="HBox/TaskBar/Margin/TaskHBox"]
-margin_left = 810.0
-margin_right = 1136.0
-margin_bottom = 55.0
+margin_left = 328.0
+margin_right = 1264.0
+margin_bottom = 50.0
 size_flags_horizontal = 3
 
 [node name="DesktopTimer" parent="HBox/TaskBar/Margin/TaskHBox" instance=ExtResource( 21 )]
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -639,9 +758,6 @@ margin_left = 1140.0
 margin_top = 0.0
 margin_right = 1264.0
 margin_bottom = 55.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/popup_windows = SubResource( 1 )
 
 [node name="GrayOverlay" type="ColorRect" parent="."]
 visible = false
@@ -684,6 +800,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/intro = SubResource( 2 )
+anims/popup_windows = SubResource( 1 )
+
+[connection signal="double_clicked" from="HBox/WindowArea/ProgramShortcut" to="." method="_on_ProgramShortcut_double_clicked"]
 [connection signal="move_to_front_requested" from="HBox/WindowArea/SlidingPuzzleWindow" to="." method="_on_CmdWindow_move_to_front_requested"]
 [connection signal="move_to_front_requested" from="HBox/WindowArea/SmithCoinNewsWindow" to="." method="_on_CmdWindow_move_to_front_requested"]
 [connection signal="move_to_front_requested" from="HBox/WindowArea/CodeKnots2" to="." method="_on_CmdWindow_move_to_front_requested"]
@@ -695,7 +816,10 @@ __meta__ = {
 [connection signal="new_code_knox" from="HBox/WindowArea/CodeKnoxEnchrypt" to="HBox/WindowArea/HackedWindow" method="_on_CodeKnoxEnchrypt_new_code_knox"]
 [connection signal="code_entered" from="HBox/WindowArea/HackedWindow" to="." method="_on_HackedWindow_code_entered"]
 [connection signal="move_to_front_requested" from="HBox/WindowArea/HackedWindow" to="." method="_on_CmdWindow_move_to_front_requested"]
+[connection signal="installation_complete" from="HBox/WindowArea/InstallationIntro" to="." method="_on_InstallationIntro_installation_complete"]
 [connection signal="pressed" from="HBox/TaskBar/Margin/TaskHBox/DecoysHBox/OsButton" to="." method="_on_OsButton_pressed"]
+[connection signal="pressed" from="HBox/TaskBar/Margin/TaskHBox/IntroHBox/FriendlyTextButton" to="." method="_on_FriendlyTextButton_pressed"]
+[connection signal="pressed" from="HBox/TaskBar/Margin/TaskHBox/IntroHBox/InstallerButton" to="." method="_on_InstallerButton_pressed"]
 [connection signal="pressed" from="HBox/TaskBar/Margin/TaskHBox/CmdHBox/SmithCoinButton" to="." method="_on_SmithCoinButton_pressed"]
 [connection signal="pressed" from="HBox/TaskBar/Margin/TaskHBox/CmdHBox/StaySmallButton" to="." method="_on_StaySmallButton_pressed"]
 [connection signal="pressed" from="HBox/TaskBar/Margin/TaskHBox/CmdHBox/SlidingPuzzleButton" to="." method="_on_SlidingPuzzleButton_pressed"]

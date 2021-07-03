@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://resources/fonts/CONSOLA.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://resources/images/loading-pixels.png" type="Texture" id=2]
 [ext_resource path="res://resources/images/progress-bar-foreground.png" type="Texture" id=3]
 [ext_resource path="res://scenes/game/intro sequence/intro_installation.gd" type="Script" id=4]
+[ext_resource path="res://scenes/ui/ui_elements/button/GameButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://resources/audio/sounds/tension.wav" type="AudioStream" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -46,8 +48,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Installation intro" type="WindowDialog"]
-visible = true
+[node name="InstallationIntro" type="WindowDialog"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -81,7 +82,7 @@ margin_left = 0.107
 margin_top = 13.482
 margin_right = 0.00497437
 margin_bottom = 13.574
-text = " Welcome to the installation wizard. This program will help you install {F2P NAME HERE} on your computer.
+text = "Welcome to the installation wizard. This program will help you install {F2P NAME HERE} on your computer.
 When you're ready, proceed with the NEXT button"
 autowrap = true
 __meta__ = {
@@ -199,7 +200,7 @@ margin_left = 0.0740004
 margin_top = -0.0690022
 margin_right = -0.0280151
 margin_bottom = 0.0169983
-text = "Installationng..."
+text = "Installing..."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -236,15 +237,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
-anchor_left = 0.803
-anchor_top = 0.9
-anchor_right = 0.97
-anchor_bottom = 0.965
-text = "NEXT"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Button" parent="." instance=ExtResource( 5 )]
+margin_left = 338.866
+margin_top = 232.2
+margin_right = 409.34
+margin_bottom = 248.2
+text = "Next"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 visible = false
@@ -253,3 +251,6 @@ scale = Vector2( 0.582391, 0.554551 )
 frames = SubResource( 8 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )

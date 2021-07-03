@@ -1,5 +1,8 @@
 extends WindowDialog
 
+signal installation_complete()
+
+
 onready var button = $Button
 onready var startingPanel = $StartingPanel
 onready var installLocPanel = $"Install Location"
@@ -11,10 +14,12 @@ onready var progressBar = $"Installation progress/ProgressBar"
 
 onready var tween = $Tween
 
+onready var audio_player = $AudioStreamPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	show()
 	button.connect("pressed", self, "panel_start")
+
 
 #	Called when the NEXT button is pressed
 #	just hides and shows next next panel
@@ -35,7 +40,7 @@ func install_location_panel():
 	
 	button.disabled = true
 	simulate_progress()
-	
+
 #	Does a fake progress bar
 #	Shows a threatening message in the end...
 func simulate_progress():
@@ -55,9 +60,11 @@ func simulate_progress():
 	
 	yield(get_tree().create_timer(2.3), "timeout")
 	
+	audio_player.play()
+	
 	while threatLabel.text.length() < maxLength:
 		threatLabel.text += threateningStr[letter]
 		letter += 1
 		yield(get_tree().create_timer(letterFactor), "timeout")
 	
-	print("[DEBUG]	Done")
+	emit_signal("installation_complete")
