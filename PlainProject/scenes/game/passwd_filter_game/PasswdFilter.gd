@@ -1,38 +1,73 @@
+tool
 extends Control
+class_name PasswordFilterWindow
 
-const Response = preload("res://scenes/game/passwd_filter_game/Response.tscn")
-const ResponseL = preload("res://scenes/game/passwd_filter_game/ResponseL.tscn")
-const storytext = preload("res://scenes/game/passwd_filter_game/storytext.tscn")
-var max_scroll := 0
+signal all_answers_correct()
+signal wrong_answer()
 
-onready var hist = $Background/MarginContainer/Rows/GameInfo/Scroll/Hist
-onready var scroll = $Background/MarginContainer/Rows/GameInfo/Scroll
-onready var scrollbar = scroll.get_v_scrollbar()
 
-func _ready() -> void:
-	grab_focus()
-	scrollbar.connect("changed", self, "handle_scrollbar_changed")
-	max_scroll = scrollbar.max_value
-	var starttext = ResponseL.instance()
-	starttext.text = "Hello. Your computer was compromised and can only get unlocked if you find the correct answer to the following riddle! \n What is so fragile that saying its name breaks it?"
-	add_response_to_game(starttext)
+const QUESTIONS = {
+	"questions" : [
+		{
+			"question" : "What is so fragile that saying its name breaks it?",
+			"answer" : "silence"
+		}
+	]
+}
+
+export (bool) var reset_on_wrong_answer = true
+export (bool) var clear_on_wrong_answer = true
+
+export (int) var current_question = 0 setget set_current_question
+
+
+
+onready var line_edit = $Margin/ContentVBox/ContentControl/ContentMargin/Rows/inputHBox/InputEdit
+onready var output_label = $Margin/ContentVBox/ContentControl/ContentMargin/Rows/ConsoleOutput
+
+
+func _ready():
+	output_label.bbcode_text = "Hello. Your computer was compromised and can only get unlocked if you find the correct answer to the following riddle! \n \n"
+	set_current_question(0)
+
+
+
+func set_current_question(_current_question : int) -> void:
+	current_question = clamp(_current_question, 0, QUESTIONS["questions"].size() - 1)
 	
+	output_label.bbcode_text += "[color=yellow]" + QUESTIONS["questions"][current_question]["question"]  + "[/color]\n"
 
-func _on_In_text_entered(new_text: String) -> void:
-	if new_text.empty():
-		return
-	var response = Response.instance()
-	if(new_text == "silence" || new_text == "Silence"):
-		get_tree().quit()
+
+
+func check_answer(_answer : String):
+	line_edit.text = ""
+	if is_answer_correct(_answer):
+		
+		output_label.bbcode_text += "[color=green][Correct Answer][/color] \n"
+		if current_question == QUESTIONS["questions"].size() - 1:
+			print("PasswordFilter.gd: All Done")
+			emit_signal("all_answers_correct")
+		else:
+			set_current_question(current_question + 1)
 	else:
-		response.set_text(new_text, "wrong answer - try again")
-	add_response_to_game(response)
-	
-	
-func handle_scrollbar_changed():
-	if max_scroll != scrollbar.max_value:
-		max_scroll = scrollbar.max_value
-		scroll.scroll_vertical = scrollbar.max_value
+		if clear_on_wrong_answer:
+			output_label.bbcode_text = ""
+		output_label.bbcode_text += "[color=red][Wrong Answer][/color] \n"
+		
+		if reset_on_wrong_answer:
+			set_current_question(0)
 
-func add_response_to_game(response: Control):
-	hist.add_child(response)
+
+func is_answer_correct(_answer : String) -> bool:
+	var correct_answer = QUESTIONS["questions"][current_question]["answer"].to_lower()
+	return _answer == correct_answer
+
+
+
+func _on_ConfirmButton_pressed():
+	if line_edit:
+		check_answer(line_edit.text)
+
+
+func _on_InputEdit_text_entered(_new_text):
+	check_answer(_new_text)

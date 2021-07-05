@@ -79,6 +79,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/ui/ui_elements/button/LocaleSelect.gd"
 }, {
+"base": "Control",
+"class": "PasswordFilterWindow",
+"language": "GDScript",
+"path": "res://scenes/game/passwd_filter_game/PasswdFilter.gd"
+}, {
 "base": "Area2D",
 "class": "PuzzleTile",
 "language": "GDScript",
@@ -104,6 +109,7 @@ _global_script_class_icons={
 "HotlinkButton": "",
 "LabeledHSlider": "",
 "LocaleSelect": "",
+"PasswordFilterWindow": "",
 "PuzzleTile": "",
 "SlidingPuzzleWindow": ""
 }
