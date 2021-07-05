@@ -15,3 +15,12 @@ func _on_CreditsButton_pressed():
 
 func _on_ExitButton_pressed():
 	get_tree().quit()
+
+
+func _on_DisclaimerButton_pressed():
+	$GrayOverlay.show()
+	$DisclaimerDialog.popup_centered()
+
+
+func _on_AcceptDialog_popup_hide():
+	$GrayOverlay.hide()
