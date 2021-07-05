@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://resources/fonts/default_font.tres" type="DynamicFont" id=1]
+
+[node name="InHist" type="Label"]
+margin_right = 1240.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.623529, 0.623529, 0.623529, 1 )
+text = "> input"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

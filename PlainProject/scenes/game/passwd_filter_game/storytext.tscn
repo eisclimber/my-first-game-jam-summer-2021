@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/game/passwd_filter_game/storytext.gd" type="Script" id=1]
+
+[node name="storytext" type="VBoxContainer"]
+margin_bottom = 29.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="Label" parent="."]
+margin_bottom = 29.0
