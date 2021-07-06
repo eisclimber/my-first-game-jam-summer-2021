@@ -7,11 +7,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -220.0
-margin_top = -160.0
-margin_right = 220.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 440, 320 )
+margin_left = -300.0
+margin_top = -191.0
+margin_right = 300.0
+margin_bottom = 191.0
+rect_min_size = Vector2( 600, 380 )
 title = "CodeKnox3"
 text_content = "
            F            B     P     S
@@ -30,34 +30,34 @@ text_content = "
                          O                       H"
 
 [node name="Margin" parent="." index="0"]
-margin_right = 438.0
-margin_bottom = 318.0
+margin_right = 598.0
+margin_bottom = 380.0
 
 [node name="ContentVBox" parent="Margin" index="0"]
-margin_right = 432.0
-margin_bottom = 312.0
+margin_right = 592.0
+margin_bottom = 374.0
 
 [node name="TitleHBox" parent="Margin/ContentVBox" index="0"]
-margin_right = 428.0
+margin_right = 588.0
 
 [node name="TitleMargin" parent="Margin/ContentVBox/TitleHBox" index="1"]
-margin_right = 407.0
+margin_right = 567.0
 
 [node name="TitleLabel" parent="Margin/ContentVBox/TitleHBox/TitleMargin" index="0"]
-margin_right = 403.0
+margin_right = 563.0
 text = "CodeKnox3"
 
 [node name="CloseButton" parent="Margin/ContentVBox/TitleHBox" index="2"]
-margin_left = 411.0
-margin_right = 428.0
+margin_left = 571.0
+margin_right = 588.0
 
 [node name="ContentControl" parent="Margin/ContentVBox" index="1"]
-margin_right = 428.0
-margin_bottom = 310.0
+margin_right = 588.0
+margin_bottom = 372.0
 
 [node name="ContentLabel" parent="Margin/ContentVBox/ContentControl/ContentMargin" index="0"]
-margin_right = 418.0
-margin_bottom = 268.0
+margin_right = 578.0
+margin_bottom = 330.0
 text = "
            F            B     P     S
         .|  |.........|  | .|  |./  /...............

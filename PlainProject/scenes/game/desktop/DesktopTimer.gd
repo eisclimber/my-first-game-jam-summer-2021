@@ -21,6 +21,11 @@ func start() -> void:
 	show()
 
 
+func stop() -> void:
+	$CountdownTimer.stop()
+	$SoundQueueTimer.stop()
+	hide()
+
 
 func _process(_delta : float) -> void:
 	if $CountdownTimer.time_left >= 0 and !$CountdownTimer.is_stopped():

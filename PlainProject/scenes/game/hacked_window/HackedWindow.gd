@@ -16,7 +16,8 @@ func _ready() -> void:
 
 func _on_ConfirmCodeButton_pressed() -> void:
 	var correct_code = (line_edit.text == code)
-	print("HackedWindow.gd: Code entered. It was %s." % correct_code)
+	if OS.is_debug_build():
+		print("HackedWindow.gd: [DEBUG] New Code received. It was %s." % correct_code)
 	
 	$Margin/ContentVBox/ContentControl/ContentMargin/ContentLabel.visible = !correct_code
 	$Margin/ContentVBox/ContentControl/ContentMargin/NotPayedHBox.visible = !correct_code
@@ -43,3 +44,14 @@ func set_has_code(_has_code : bool) -> void:
 	has_code = _has_code
 	
 
+
+
+func _on_CodeLineEdit_text_entered(_new_text : String) -> void:
+	var correct_code = (_new_text == code)
+	print("HackedWindow.gd: Code entered. It was %s." % correct_code)
+	
+	$Margin/ContentVBox/ContentControl/ContentMargin/ContentLabel.visible = !correct_code
+	$Margin/ContentVBox/ContentControl/ContentMargin/NotPayedHBox.visible = !correct_code
+	$Margin/ContentVBox/ContentControl/ContentMargin/PayedLabel.visible = correct_code
+	
+	emit_signal("code_entered", correct_code)

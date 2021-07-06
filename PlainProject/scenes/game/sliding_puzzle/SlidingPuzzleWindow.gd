@@ -46,7 +46,10 @@ func is_in_front() -> bool:
 
 
 func get_drag_data(_position : Vector2):
-	if yields_coin:
+	if yields_coin or OS.is_debug_build():
+		if OS.is_debug_build():
+			print("SlidingPuzzleWindow.gd: [DEBUG] Getting drag data for debugging.")
+		
 		var preview = Control.new()
 		var texture_rect = TextureRect.new()
 		
@@ -59,7 +62,7 @@ func get_drag_data(_position : Vector2):
 		
 		set_drag_preview(preview)
 		
-		return {"yields_coin": yields_coin}
+		return {"yields_coin": yields_coin or OS.is_debug_build()}
 
 
 func _on_CodeKnoxEnchrypt_new_code_knox(_code : PoolIntArray) -> void:

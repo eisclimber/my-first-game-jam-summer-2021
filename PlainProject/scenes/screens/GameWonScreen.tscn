@@ -62,17 +62,18 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Margin/MarginContainer/VBox"]
-margin_top = 243.0
+margin_top = 231.0
 margin_right = 960.0
-margin_bottom = 256.0
-text = "You won."
+margin_bottom = 268.0
+text = "You won.
+Yup, that's it."
 align = 1
 
 [node name="BackButton" parent="Margin/MarginContainer/VBox" instance=ExtResource( 1 )]
 margin_left = 400.0
-margin_top = 316.0
+margin_top = 328.0
 margin_right = 560.0
-margin_bottom = 356.0
+margin_bottom = 368.0
 rect_min_size = Vector2( 160, 40 )
 size_flags_horizontal = 4
 text = "Back to Menu"

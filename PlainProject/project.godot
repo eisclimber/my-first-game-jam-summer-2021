@@ -116,7 +116,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Plain Project"
+config/name="Forklift F2P"
 run/main_scene="res://scenes/screens/MainMenuScreen.tscn"
 config/icon="res://icon.png"
 

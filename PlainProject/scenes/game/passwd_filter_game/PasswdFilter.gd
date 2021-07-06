@@ -45,7 +45,6 @@ func check_answer(_answer : String):
 		
 		output_label.bbcode_text += "[color=green][Correct Answer][/color] \n"
 		if current_question == QUESTIONS["questions"].size() - 1:
-			print("PasswordFilter.gd: All Done")
 			emit_signal("all_answers_correct")
 		else:
 			set_current_question(current_question + 1)

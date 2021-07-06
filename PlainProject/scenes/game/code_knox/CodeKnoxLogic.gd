@@ -29,7 +29,6 @@ func get_window_key_info(_window_idx : String, _key : String) -> Dictionary:
 #	print(_window_idx, "  ", _key, "   ", INFOS.has(_window_idx), "   ", INFOS[_window_idx].has(_key))
 	if INFOS.has(_window_idx) and INFOS[_window_idx].has(_key):
 		return INFOS[_window_idx][_key]
-	print(_window_idx, "  ", _key, "   ", INFOS.has(_window_idx), "   ", INFOS[_window_idx].has(_key))
 	return {}
 
 

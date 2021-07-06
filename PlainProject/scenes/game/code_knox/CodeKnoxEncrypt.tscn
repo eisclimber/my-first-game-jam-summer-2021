@@ -9,10 +9,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -151.0
-margin_top = -116.0
-margin_right = 195.0
-margin_bottom = 165.0
+margin_left = -216.5
+margin_top = -175.0
+margin_right = 216.5
+margin_bottom = 175.0
+rect_min_size = Vector2( 430, 350 )
 script = ExtResource( 3 )
 title = "CodeKnox Encrypt"
 text_content = "Order Summary:
@@ -30,34 +31,34 @@ ________________________________________
     StaySmall, YMCC, SmithCoin."
 
 [node name="Margin" parent="." index="0"]
-margin_right = 344.0
-margin_bottom = 279.0
+margin_right = 431.0
+margin_bottom = 348.0
 
 [node name="ContentVBox" parent="Margin" index="0"]
-margin_right = 338.0
-margin_bottom = 273.0
+margin_right = 425.0
+margin_bottom = 342.0
 
 [node name="TitleHBox" parent="Margin/ContentVBox" index="0"]
-margin_right = 334.0
+margin_right = 421.0
 
 [node name="TitleMargin" parent="Margin/ContentVBox/TitleHBox" index="1"]
-margin_right = 313.0
+margin_right = 400.0
 
 [node name="TitleLabel" parent="Margin/ContentVBox/TitleHBox/TitleMargin" index="0"]
-margin_right = 309.0
+margin_right = 396.0
 text = "CodeKnox Encrypt"
 
 [node name="CloseButton" parent="Margin/ContentVBox/TitleHBox" index="2"]
-margin_left = 317.0
-margin_right = 334.0
+margin_left = 404.0
+margin_right = 421.0
 
 [node name="ContentControl" parent="Margin/ContentVBox" index="1"]
-margin_right = 334.0
-margin_bottom = 271.0
+margin_right = 421.0
+margin_bottom = 340.0
 
 [node name="ContentLabel" parent="Margin/ContentVBox/ContentControl/ContentMargin" index="0"]
-margin_right = 324.0
-margin_bottom = 229.0
+margin_right = 411.0
+margin_bottom = 298.0
 custom_colors/font_color = Color( 1, 1, 0, 1 )
 text = "Order Summary:
 

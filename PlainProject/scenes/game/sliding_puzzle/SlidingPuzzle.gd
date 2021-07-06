@@ -86,7 +86,7 @@ func are_tiles_in_order() -> bool:
 func move_tile_at_position(_pos : Vector2):
 	var click_tile_pos = (_pos / tile_size).floor()
 	for tile in $Tiles.get_children():
-		if tile.curr_pos == click_tile_pos:
+		if tile.curr_pos == click_tile_pos and tile.can_be_moved:
 			tile.move_if_allowed()
 
 

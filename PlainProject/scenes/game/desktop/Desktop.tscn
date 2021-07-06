@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://resources/sprites/desktop/Icon0.png" type="Texture" id=1]
 [ext_resource path="res://resources/sprites/desktop/Desktop1.png" type="Texture" id=2]
@@ -25,10 +25,237 @@
 [ext_resource path="res://scenes/game/intro sequence/initial_txt.tscn" type="PackedScene" id=23]
 [ext_resource path="res://scenes/game/intro sequence/intro_installation.tscn" type="PackedScene" id=24]
 [ext_resource path="res://scenes/game/code_knox/CodeKnoxExplanation.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scenes/game/passwd_filter_game/PasswdFilter.tscn" type="PackedScene" id=26]
 
 [sub_resource type="Animation" id=1]
-resource_name = "intro"
-length = 0.1
+resource_name = "close_windows"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("HBox/WindowArea/InstallerShortcut")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("HBox/WindowArea/GameShortcut")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "show"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("HBox/WindowArea/SlidingPuzzleWindow")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("HBox/WindowArea/SmithCoinNewsWindow")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("HBox/WindowArea/CodeKnots2")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+} ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("HBox/WindowArea/CodeKnoxExplanation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+} ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("HBox/WindowArea/CodeKnots3")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+} ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath("HBox/WindowArea/YMCCWindow")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+} ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath("HBox/WindowArea/CodeKnots1")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+} ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath("HBox/WindowArea/StaySmallWindow")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+} ]
+}
+tracks/10/type = "method"
+tracks/10/path = NodePath("HBox/WindowArea/CodeKnoxEnchrypt")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+} ]
+}
+tracks/11/type = "method"
+tracks/11/path = NodePath("HBox/WindowArea/HackedWindow")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+} ]
+}
+tracks/12/type = "method"
+tracks/12/path = NodePath("HBox/WindowArea/FriendTXT")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+} ]
+}
+tracks/13/type = "method"
+tracks/13/path = NodePath("HBox/WindowArea/InstallationIntro")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+} ]
+}
+tracks/14/type = "method"
+tracks/14/path = NodePath("HBox/TaskBar/Margin/TaskHBox/CmdHBox")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+} ]
+}
+tracks/15/type = "method"
+tracks/15/path = NodePath("HBox/TaskBar/Margin/TaskHBox/DesktopTimer")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 1.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
 tracks/0/type = "method"
 tracks/0/path = NodePath("HBox/WindowArea/FriendTXT")
 tracks/0/interp = 1
@@ -36,15 +263,29 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.1 ),
+"times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ Rect2( 0, 0, 0, 0 ) ],
 "method": "popup"
 } ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath("HBox/WindowArea/InstallerShortcut")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "show"
+} ]
+}
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 tracks/0/type = "method"
 tracks/0/path = NodePath("HBox/WindowArea/SmithCoinNewsWindow")
 tracks/0/interp = 1
@@ -423,7 +664,7 @@ tracks/22/keys = {
 } ]
 }
 tracks/23/type = "method"
-tracks/23/path = NodePath("HBox/WindowArea/ProgramShortcut")
+tracks/23/path = NodePath("HBox/WindowArea/InstallerShortcut")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/imported = false
@@ -432,8 +673,8 @@ tracks/23/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [  ],
-"method": "hide"
+"args": [ true ],
+"method": "set_disabled"
 } ]
 }
 tracks/24/type = "method"
@@ -470,6 +711,20 @@ tracks/25/keys = {
 "method": "show"
 } ]
 }
+tracks/26/type = "method"
+tracks/26/path = NodePath("HBox/WindowArea/GameShortcut")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+} ]
+}
 
 [node name="Desktop" type="Control"]
 anchor_right = 1.0
@@ -501,11 +756,21 @@ margin_bottom = 658.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ProgramShortcut" parent="HBox/WindowArea" instance=ExtResource( 22 )]
-margin_left = -600.563
-margin_top = -282.134
-margin_right = -600.563
-margin_bottom = -282.134
+[node name="InstallerShortcut" parent="HBox/WindowArea" instance=ExtResource( 22 )]
+visible = false
+margin_left = -569.695
+margin_top = -270.165
+margin_right = -569.695
+margin_bottom = -270.165
+
+[node name="GameShortcut" parent="HBox/WindowArea" instance=ExtResource( 22 )]
+visible = false
+margin_left = -568.872
+margin_top = -163.251
+margin_right = -568.872
+margin_bottom = -163.251
+program_name = "Forklift
+The Game"
 
 [node name="SlidingPuzzleWindow" parent="HBox/WindowArea" instance=ExtResource( 16 )]
 visible = false
@@ -550,19 +815,19 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 629.124
-margin_top = 329.534
-margin_right = 1069.13
-margin_bottom = 649.534
+margin_left = 476.906
+margin_top = 281.966
+margin_right = 1076.91
+margin_bottom = 661.966
 
 [node name="YMCCWindow" parent="HBox/WindowArea" instance=ExtResource( 15 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 603.636
-margin_top = 389.72
-margin_right = 1234.64
-margin_bottom = 653.72
+margin_left = 617.906
+margin_top = 390.909
+margin_right = 1248.91
+margin_bottom = 654.909
 
 [node name="CodeKnots1" parent="HBox/WindowArea" instance=ExtResource( 11 )]
 visible = false
@@ -570,10 +835,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 837.022
-margin_top = 322.045
-margin_right = 1277.02
-margin_bottom = 642.045
+margin_left = 444.584
+margin_top = 49.7167
+margin_right = 1044.58
+margin_bottom = 429.717
 
 [node name="StaySmallWindow" parent="HBox/WindowArea" instance=ExtResource( 14 )]
 visible = false
@@ -590,10 +855,10 @@ anchor_left = 0.0
 anchor_top = 0.00170588
 anchor_right = 0.0
 anchor_bottom = 0.0017059
-margin_left = 753.775
-margin_top = 12.7348
-margin_right = 1207.77
-margin_bottom = 281.735
+margin_left = 758.532
+margin_top = 5.59955
+margin_right = 1212.53
+margin_bottom = 355.6
 
 [node name="HackedWindow" parent="HBox/WindowArea" instance=ExtResource( 17 )]
 visible = false
@@ -614,10 +879,14 @@ margin_right = -212.061
 margin_bottom = -79.7422
 
 [node name="InstallationIntro" parent="HBox/WindowArea" instance=ExtResource( 24 )]
-margin_left = -232.338
-margin_top = -49.7965
-margin_right = 189.662
-margin_bottom = 208.204
+visible = false
+margin_left = -508.234
+margin_top = -196.069
+margin_right = -86.234
+margin_bottom = 61.9315
+
+[node name="PasswordFilter" parent="HBox/WindowArea" instance=ExtResource( 26 )]
+visible = false
 
 [node name="TaskBar" type="PanelContainer" parent="HBox"]
 margin_top = 662.0
@@ -860,10 +1129,12 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/intro = SubResource( 1 )
-anims/popup_windows = SubResource( 2 )
+anims/close_windows = SubResource( 1 )
+anims/intro = SubResource( 2 )
+anims/popup_windows = SubResource( 3 )
 
-[connection signal="double_clicked" from="HBox/WindowArea/ProgramShortcut" to="." method="_on_ProgramShortcut_double_clicked"]
+[connection signal="double_clicked" from="HBox/WindowArea/InstallerShortcut" to="." method="_on_InstallerShortcut_double_clicked"]
+[connection signal="double_clicked" from="HBox/WindowArea/GameShortcut" to="." method="_on_GameShortcut_double_clicked"]
 [connection signal="move_to_front_requested" from="HBox/WindowArea/SlidingPuzzleWindow" to="." method="_on_CmdWindow_move_to_front_requested"]
 [connection signal="move_to_front_requested" from="HBox/WindowArea/SmithCoinNewsWindow" to="." method="_on_CmdWindow_move_to_front_requested"]
 [connection signal="move_to_front_requested" from="HBox/WindowArea/CodeKnots2" to="." method="_on_CmdWindow_move_to_front_requested"]
@@ -877,7 +1148,9 @@ anims/popup_windows = SubResource( 2 )
 [connection signal="new_code_knox" from="HBox/WindowArea/CodeKnoxEnchrypt" to="HBox/WindowArea/HackedWindow" method="_on_CodeKnoxEnchrypt_new_code_knox"]
 [connection signal="code_entered" from="HBox/WindowArea/HackedWindow" to="." method="_on_HackedWindow_code_entered"]
 [connection signal="move_to_front_requested" from="HBox/WindowArea/HackedWindow" to="." method="_on_CmdWindow_move_to_front_requested"]
+[connection signal="popup_hide" from="HBox/WindowArea/FriendTXT" to="." method="_on_FriendTXT_popup_hide"]
 [connection signal="installation_complete" from="HBox/WindowArea/InstallationIntro" to="." method="_on_InstallationIntro_installation_complete"]
+[connection signal="all_answers_correct" from="HBox/WindowArea/PasswordFilter" to="." method="_on_PasswordFilter_all_answers_correct"]
 [connection signal="pressed" from="HBox/TaskBar/Margin/TaskHBox/DecoysHBox/OsButton" to="." method="_on_OsButton_pressed"]
 [connection signal="pressed" from="HBox/TaskBar/Margin/TaskHBox/IntroHBox/FriendlyTextButton" to="." method="_on_FriendlyTextButton_pressed"]
 [connection signal="pressed" from="HBox/TaskBar/Margin/TaskHBox/IntroHBox/InstallerButton" to="." method="_on_InstallerButton_pressed"]

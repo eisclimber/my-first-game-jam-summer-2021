@@ -3,6 +3,7 @@ extends Control
 class_name Desktop
 
 onready var window_area = $HBox/WindowArea
+export (bool) var force_friend_txt_reopen = true
 
 func _ready() -> void:
 	if !Engine.is_editor_hint():
@@ -12,13 +13,21 @@ func _ready() -> void:
 
 ## Intro Install
 
-func _on_ProgramShortcut_double_clicked() -> void:
+func _on_InstallerShortcut_double_clicked() -> void:
+	force_friend_txt_reopen = false
+	$AnimationPlayer.stop()
+	$HBox/WindowArea/FriendTXT.hide()
 	$HBox/TaskBar/Margin/TaskHBox/IntroHBox/InstallerButton.show()
 	$HBox/WindowArea/InstallationIntro.popup_centered()
 
 
 func _on_InstallationIntro_installation_complete() -> void:
 	$AnimationPlayer.play("popup_windows")
+
+
+# Main Game done
+func _on_GameShortcut_double_clicked() -> void:
+	$HBox/WindowArea/PasswordFilter.show()
 
 
 
@@ -33,28 +42,7 @@ func _on_HackedWindow_code_entered(_correct_code : bool) -> void:
 
 
 func close_popups_after_valid_code() -> void:
-	print("Desktop.gd: Correct code entered.")
-#	$HBox/WindowArea/SlidingPuzzleWindow.hide()
-#	$HBox/WindowArea/SmithCoinNewsWindow.hide()
-#	$HBox/WindowArea/CodeKnots2.hide()
-#	$HBox/WindowArea/CodeKnoxExplanation.hide()
-#	$HBox/WindowArea/CodeKnots3.hide()
-#	$HBox/WindowArea/YMCCWindow.hide()
-#	$HBox/WindowArea/CodeKnots1.hide()
-#	$HBox/WindowArea/StaySmallWindow.hide()
-#	$HBox/WindowArea/CodeKnoxEnchrypt.hide()
-#	$HBox/WindowArea/HackedWindow.hide()
-#	$HBox/WindowArea/FriendTXT.hide()
-#	$HBox/TaskBar/Margin/TaskHBox/CmdHBox/SmithCoinButton.hide()
-#	$HBox/TaskBar/Margin/TaskHBox/CmdHBox/StaySmallButton.hide()
-#	$HBox/TaskBar/Margin/TaskHBox/CmdHBox/SlidingPuzzleButton.hide()
-#	$HBox/TaskBar/Margin/TaskHBox/CmdHBox/CodeKnox1Button.hide()
-#	$HBox/TaskBar/Margin/TaskHBox/CmdHBox/CodeKnox2Button.hide()
-#	$HBox/TaskBar/Margin/TaskHBox/CmdHBox/CodeKnox3Button.hide()
-#	$HBox/TaskBar/Margin/TaskHBox/CmdHBox/YMCCButton.hide()
-#	$HBox/TaskBar/Margin/TaskHBox/CmdHBox/CodeKnoxEnchryptButton.hide()
-#	$HBox/TaskBar/Margin/TaskHBox/CmdHBox/HackedWindowButton.hide()
-
+	$AnimationPlayer.play("close_windows")
 
 
 ## Window Maximation
@@ -142,3 +130,15 @@ func _on_WrongCodeDialog_popup_hide() -> void:
 
 func _on_DesktopTimer_timeout() -> void:
 	var _error = get_tree().change_scene(ScenePaths.GAME_OVER_SCENE)
+
+
+# Force FriendTXT to popup again if the installer wasn't executed
+func _on_FriendTXT_popup_hide():
+	if force_friend_txt_reopen:
+		$AnimationPlayer.play("intro")
+
+
+# Goto end
+
+func _on_PasswordFilter_all_answers_correct() -> void:
+	get_tree().change_scene(ScenePaths.GAME_WON_SCENE)

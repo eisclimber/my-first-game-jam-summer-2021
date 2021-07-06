@@ -9,10 +9,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -331.5
-margin_top = -182.5
-margin_right = 331.5
-margin_bottom = 182.5
+margin_left = -370.0
+margin_top = -230.0
+margin_right = 370.0
+margin_bottom = 230.0
+rect_min_size = Vector2( 740, 460 )
 script = ExtResource( 2 )
 title = "You have been hacked!!!!"
 text_content = "Well guess who's PC has been hacked? 
@@ -31,34 +32,34 @@ Be warned you only have 15 minutes to pay.
 If you do not manage to pay in time, then say goodbye to your data and take cover;)"
 
 [node name="Margin" parent="." index="0"]
-margin_right = 661.0
-margin_bottom = 363.0
+margin_right = 738.0
+margin_bottom = 458.0
 
 [node name="ContentVBox" parent="Margin" index="0"]
-margin_right = 655.0
-margin_bottom = 357.0
+margin_right = 732.0
+margin_bottom = 452.0
 
 [node name="TitleHBox" parent="Margin/ContentVBox" index="0"]
-margin_right = 651.0
+margin_right = 728.0
 
 [node name="TitleMargin" parent="Margin/ContentVBox/TitleHBox" index="1"]
-margin_right = 630.0
+margin_right = 707.0
 
 [node name="TitleLabel" parent="Margin/ContentVBox/TitleHBox/TitleMargin" index="0"]
-margin_right = 626.0
+margin_right = 703.0
 text = "You have been hacked!!!!"
 
 [node name="CloseButton" parent="Margin/ContentVBox/TitleHBox" index="2"]
-margin_left = 634.0
-margin_right = 651.0
+margin_left = 711.0
+margin_right = 728.0
 
 [node name="ContentControl" parent="Margin/ContentVBox" index="1"]
-margin_right = 651.0
-margin_bottom = 355.0
+margin_right = 728.0
+margin_bottom = 450.0
 
 [node name="ContentLabel" parent="Margin/ContentVBox/ContentControl/ContentMargin" index="0"]
-margin_right = 641.0
-margin_bottom = 313.0
+margin_right = 718.0
+margin_bottom = 408.0
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "Well guess who's PC has been hacked? 
 
@@ -78,26 +79,25 @@ If you do not manage to pay in time, then say goodbye to your data and take cove
 [node name="PayedLabel" type="Label" parent="Margin/ContentVBox/ContentControl/ContentMargin" index="1"]
 visible = false
 margin_left = 16.0
-margin_top = 91.0
-margin_right = 641.0
-margin_bottom = 232.0
+margin_top = 130.0
+margin_right = 718.0
+margin_bottom = 287.0
 custom_colors/font_color = Color( 0, 1, 0, 1 )
 text = "Wait? Did you actually pay?!
 Hahaha it worked!!!!
 
-Uhm, that might be a minor problem....
-I never though anybody would pay,
-so I did not implement a function to abort my program.
-The timer is still running and your PC will still explode.
+There you go play your little game if you can..
 
-Anyway, you're on your own, but thanks for the money, stupid."
+Anyway,  thanks for the money, stupid.
+
+Over and Out."
 valign = 1
 
 [node name="NotPayedHBox" type="HBoxContainer" parent="Margin/ContentVBox/ContentControl/ContentMargin" index="2"]
 margin_left = 16.0
-margin_top = 298.0
-margin_right = 641.0
-margin_bottom = 313.0
+margin_top = 389.0
+margin_right = 718.0
+margin_bottom = 408.0
 size_flags_vertical = 8
 __meta__ = {
 "_edit_use_anchors_": false
@@ -105,14 +105,14 @@ __meta__ = {
 
 [node name="CaretLabel" type="Label" parent="Margin/ContentVBox/ContentControl/ContentMargin/NotPayedHBox" index="0"]
 margin_top = 1.0
-margin_right = 7.0
-margin_bottom = 14.0
+margin_right = 9.0
+margin_bottom = 18.0
 text = ">"
 
 [node name="CodeLineEdit" type="LineEdit" parent="Margin/ContentVBox/ContentControl/ContentMargin/NotPayedHBox" index="1"]
-margin_left = 11.0
-margin_right = 535.0
-margin_bottom = 15.0
+margin_left = 13.0
+margin_right = 588.0
+margin_bottom = 19.0
 size_flags_horizontal = 3
 max_length = 10
 placeholder_text = "[Enter VirtUnlock Code]"
@@ -123,12 +123,13 @@ __meta__ = {
 }
 
 [node name="ConfirmCodeButton" type="Button" parent="Margin/ContentVBox/ContentControl/ContentMargin/NotPayedHBox" index="2"]
-margin_left = 539.0
-margin_right = 625.0
-margin_bottom = 15.0
+margin_left = 592.0
+margin_right = 702.0
+margin_bottom = 19.0
 mouse_default_cursor_shape = 2
 custom_colors/font_color = Color( 1, 1, 0, 1 )
 text = "Confirm Code"
 script = ExtResource( 3 )
 
+[connection signal="text_entered" from="Margin/ContentVBox/ContentControl/ContentMargin/NotPayedHBox/CodeLineEdit" to="." method="_on_CodeLineEdit_text_entered"]
 [connection signal="pressed" from="Margin/ContentVBox/ContentControl/ContentMargin/NotPayedHBox/ConfirmCodeButton" to="." method="_on_ConfirmCodeButton_pressed"]

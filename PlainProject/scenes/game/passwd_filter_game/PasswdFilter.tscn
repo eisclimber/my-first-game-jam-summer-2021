@@ -6,9 +6,9 @@
 [ext_resource path="res://scenes/game/passwd_filter_game/PasswdFilter.gd" type="Script" id=4]
 [ext_resource path="res://resources/fonts/cmd_title_font.tres" type="DynamicFont" id=5]
 
-[sub_resource type="StyleBoxEmpty" id=2]
+[sub_resource type="StyleBoxEmpty" id=1]
 
-[sub_resource type="StyleBoxEmpty" id=3]
+[sub_resource type="StyleBoxEmpty" id=2]
 
 [node name="PasswordFilter" type="PanelContainer"]
 anchor_right = 1.0
@@ -39,18 +39,18 @@ mouse_filter = 2
 
 [node name="TitleHBox" type="HBoxContainer" parent="Margin/ContentVBox"]
 margin_right = 1268.0
-margin_bottom = 28.0
+margin_bottom = 27.0
 size_flags_vertical = 0
 alignment = 1
 
 [node name="AppIcon" type="TextureRect" parent="Margin/ContentVBox/TitleHBox"]
-margin_bottom = 28.0
+margin_bottom = 27.0
 mouse_filter = 2
 
 [node name="TitleMargin" type="MarginContainer" parent="Margin/ContentVBox/TitleHBox"]
 margin_left = 4.0
-margin_right = 1247.0
-margin_bottom = 28.0
+margin_right = 1268.0
+margin_bottom = 27.0
 mouse_filter = 2
 size_flags_horizontal = 3
 custom_constants/margin_top = 6
@@ -59,15 +59,17 @@ custom_constants/margin_left = 10
 [node name="TitleLabel" type="Label" parent="Margin/ContentVBox/TitleHBox/TitleMargin"]
 margin_left = 10.0
 margin_top = 6.0
-margin_right = 1243.0
+margin_right = 1264.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Forklift Security"
 align = 1
 autowrap = true
 
 [node name="CloseButton" parent="Margin/ContentVBox/TitleHBox" instance=ExtResource( 2 )]
+visible = false
 margin_left = 1251.0
 margin_right = 1268.0
 margin_bottom = 28.0
@@ -78,7 +80,7 @@ text = "X"
 flat = true
 
 [node name="ContentControl" type="Control" parent="Margin/ContentVBox"]
-margin_top = 32.0
+margin_top = 31.0
 margin_right = 1268.0
 margin_bottom = 710.0
 size_flags_vertical = 3
@@ -110,7 +112,7 @@ __meta__ = {
 margin_left = 16.0
 margin_top = 10.0
 margin_right = 1258.0
-margin_bottom = 668.0
+margin_bottom = 669.0
 custom_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": false
@@ -118,14 +120,22 @@ __meta__ = {
 
 [node name="ConsoleOutput" type="RichTextLabel" parent="Margin/ContentVBox/ContentControl/ContentMargin/Rows"]
 margin_right = 1242.0
-margin_bottom = 619.0
+margin_bottom = 620.0
 size_flags_vertical = 3
 bbcode_enabled = true
+bbcode_text = "Hello. Your computer was compromised and can only get unlocked if you find the correct answer to the following riddle! 
+ 
+[color=yellow]What is so fragile that saying its name breaks it?[/color]
+"
+text = "Hello. Your computer was compromised and can only get unlocked if you find the correct answer to the following riddle! 
+ 
+What is so fragile that saying its name breaks it?
+"
 
 [node name="inputHBox" type="HBoxContainer" parent="Margin/ContentVBox/ContentControl/ContentMargin/Rows"]
-margin_top = 639.0
+margin_top = 640.0
 margin_right = 1242.0
-margin_bottom = 658.0
+margin_bottom = 659.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -144,8 +154,8 @@ margin_left = 31.0
 margin_right = 1155.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
-custom_styles/focus = SubResource( 2 )
-custom_styles/normal = SubResource( 3 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 0, 1 )
 max_length = 52
 caret_blink = true
