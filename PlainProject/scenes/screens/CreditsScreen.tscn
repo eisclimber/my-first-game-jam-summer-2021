@@ -62,21 +62,23 @@ __meta__ = {
 }
 
 [node name="ContributorsLabel" type="Label" parent="Margin/MarginContainer/VBox"]
-margin_top = 226.0
+margin_top = 195.0
 margin_right = 960.0
-margin_bottom = 313.0
+margin_bottom = 344.0
 custom_fonts/font = ExtResource( 5 )
 custom_constants/line_spacing = 6
 text = "Contributors:
+
 Luca 'eisclimber' Dreiling
-Artur 'exor' Plischke"
+Artur 'exor' Plischke
+'mrDock21'"
 align = 1
 
 [node name="BackButton" parent="Margin/MarginContainer/VBox" instance=ExtResource( 2 )]
 margin_left = 400.0
-margin_top = 333.0
+margin_top = 364.0
 margin_right = 560.0
-margin_bottom = 373.0
+margin_bottom = 404.0
 rect_min_size = Vector2( 160, 40 )
 size_flags_horizontal = 4
 text = "Back to Menu"
