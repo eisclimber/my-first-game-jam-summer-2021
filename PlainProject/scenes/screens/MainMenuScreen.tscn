@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/screens/MainMenuScreen.gd" type="Script" id=2]
 [ext_resource path="res://resources/themes/taskbar_theme.tres" type="Theme" id=3]
 [ext_resource path="res://resources/sprites/desktop/Desktop1.png" type="Texture" id=4]
-[ext_resource path="res://resources/sprites/ending/ForkliftF2PLogo.png" type="Texture" id=5]
+[ext_resource path="res://resources/images/forkilft-banner.png" type="Texture" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.215686, 0.317647, 0.498039, 0.941176 )
