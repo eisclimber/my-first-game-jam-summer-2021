@@ -80,9 +80,9 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="ForkliftLogo" type="TextureRect" parent="Margin/ButtonsVBox"]
-margin_top = 126.0
+margin_top = 136.0
 margin_right = 1280.0
-margin_bottom = 254.0
+margin_bottom = 264.0
 rect_min_size = Vector2( 0, 128 )
 texture = ExtResource( 5 )
 stretch_mode = 6
@@ -90,46 +90,41 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PlayButton" parent="Margin/ButtonsVBox" instance=ExtResource( 1 )]
+margin_left = 520.0
+margin_top = 284.0
+margin_right = 760.0
+margin_bottom = 344.0
+rect_min_size = Vector2( 240, 60 )
+size_flags_horizontal = 4
+text = "Play"
+
 [node name="OptionsButton" parent="Margin/ButtonsVBox" instance=ExtResource( 1 )]
 margin_left = 520.0
-margin_top = 274.0
+margin_top = 364.0
 margin_right = 760.0
-margin_bottom = 334.0
+margin_bottom = 424.0
 rect_min_size = Vector2( 240, 60 )
 size_flags_horizontal = 4
 text = "Options"
 
 [node name="CreditsButton" parent="Margin/ButtonsVBox" instance=ExtResource( 1 )]
 margin_left = 520.0
-margin_top = 354.0
+margin_top = 444.0
 margin_right = 760.0
-margin_bottom = 414.0
+margin_bottom = 504.0
 rect_min_size = Vector2( 240, 60 )
 size_flags_horizontal = 4
 text = "Credits"
 
 [node name="ExitButton" parent="Margin/ButtonsVBox" instance=ExtResource( 1 )]
 margin_left = 520.0
-margin_top = 434.0
+margin_top = 524.0
 margin_right = 760.0
-margin_bottom = 494.0
+margin_bottom = 584.0
 rect_min_size = Vector2( 240, 60 )
 size_flags_horizontal = 4
 text = "Exit"
-
-[node name="PlayButton" parent="Margin/ButtonsVBox" instance=ExtResource( 1 )]
-margin_left = 520.0
-margin_top = 514.0
-margin_right = 760.0
-margin_bottom = 574.0
-rect_min_size = Vector2( 240, 60 )
-size_flags_horizontal = 4
-text = "Play"
-
-[node name="Control" type="Control" parent="Margin/ButtonsVBox"]
-margin_top = 594.0
-margin_right = 1280.0
-margin_bottom = 594.0
 
 [node name="Margin2" type="MarginContainer" parent="."]
 margin_left = 1180.0
@@ -186,9 +181,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="pressed" from="Margin/ButtonsVBox/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Margin/ButtonsVBox/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="Margin/ButtonsVBox/CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="Margin/ButtonsVBox/ExitButton" to="." method="_on_ExitButton_pressed"]
-[connection signal="pressed" from="Margin/ButtonsVBox/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Margin2/DisclaimerButton" to="." method="_on_DisclaimerButton_pressed"]
 [connection signal="popup_hide" from="DisclaimerDialog" to="." method="_on_AcceptDialog_popup_hide"]

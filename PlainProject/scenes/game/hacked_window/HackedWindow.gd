@@ -35,7 +35,7 @@ func _on_CodeKnoxEnchrypt_new_code_knox(_code : PoolIntArray) -> void:
 	
 	line_edit.max_length = code.length()
 	
-	print("HackedWindow.gd: ", code)
+	print("HackedWindow.gd: [DEBUG] Code is ", code)
 	
 	set_has_code(true)
 

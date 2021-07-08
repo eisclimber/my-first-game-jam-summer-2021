@@ -11,6 +11,7 @@ margin_left = -0.12001
 margin_top = 0.159996
 margin_right = 0.119873
 margin_bottom = -0.160034
+rect_min_size = Vector2( 950, 580 )
 title = "Code Knox FAQ"
 text_content = "Q: What is CodeKnox?
 A: Code Knox is a Visual Encryption Service (VES) featuring an unique encryption method, making Code Knox by far the safest VES on the market.

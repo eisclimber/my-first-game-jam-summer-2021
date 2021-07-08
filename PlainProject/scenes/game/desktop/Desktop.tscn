@@ -30,44 +30,43 @@
 [ext_resource path="res://resources/images/Fortklif-logo.png" type="Texture" id=28]
 [ext_resource path="res://resources/images/explosion.png" type="Texture" id=29]
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 29 )
 region = Rect2( 0, 0, 184, 184 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 29 )
 region = Rect2( 184, 0, 184, 184 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 29 )
 region = Rect2( 368, 0, 184, 184 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 29 )
 region = Rect2( 552, 0, 184, 184 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 29 )
 region = Rect2( 736, 0, 184, 184 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 29 )
 region = Rect2( 0, 184, 184, 184 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 29 )
 region = Rect2( 184, 184, 184, 184 )
 
-[sub_resource type="SpriteFrames" id=11]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
 "loop": false,
 "name": "default",
 "speed": 10.0
 } ]
 
-[sub_resource type="Animation" id=1]
-resource_name = "close_windows"
+[sub_resource type="Animation" id=9]
 length = 2.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("HBox/WindowArea/InstallerShortcut")
@@ -294,7 +293,7 @@ tracks/15/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=10]
 tracks/0/type = "method"
 tracks/0/path = NodePath("HBox/WindowArea/FriendTXT")
 tracks/0/interp = 1
@@ -324,7 +323,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=11]
 tracks/0/type = "method"
 tracks/0/path = NodePath("HBox/WindowArea/SmithCoinNewsWindow")
 tracks/0/interp = 1
@@ -1126,7 +1125,6 @@ margin_left = 1140.0
 margin_top = 0.0
 margin_right = 1264.0
 margin_bottom = 55.0
-countdown_time = 15.0
 
 [node name="GrayOverlay" type="ColorRect" parent="."]
 visible = false
@@ -1174,15 +1172,15 @@ __meta__ = {
 visible = false
 position = Vector2( 636.418, 331.347 )
 scale = Vector2( 9.03384, 8.66356 )
-frames = SubResource( 11 )
+frames = SubResource( 8 )
 frame = 1
 
 [node name="Tween" type="Tween" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/close_windows = SubResource( 1 )
-anims/intro = SubResource( 2 )
-anims/popup_windows = SubResource( 3 )
+anims/close_windows = SubResource( 9 )
+anims/intro = SubResource( 10 )
+anims/popup_windows = SubResource( 11 )
 
 [connection signal="double_clicked" from="HBox/WindowArea/InstallerShortcut" to="." method="_on_InstallerShortcut_double_clicked"]
 [connection signal="double_clicked" from="HBox/WindowArea/GameShortcut" to="." method="_on_GameShortcut_double_clicked"]
