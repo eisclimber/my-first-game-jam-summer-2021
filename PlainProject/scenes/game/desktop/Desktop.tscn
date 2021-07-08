@@ -883,7 +883,6 @@ margin_right = -212.061
 margin_bottom = -79.7422
 
 [node name="InstallationIntro" parent="HBox/WindowArea" instance=ExtResource( 24 )]
-visible = false
 margin_left = -508.234
 margin_top = -196.069
 margin_right = -86.234
@@ -1090,6 +1089,7 @@ margin_left = 1140.0
 margin_top = 0.0
 margin_right = 1264.0
 margin_bottom = 55.0
+countdown_time = 15.0
 
 [node name="GrayOverlay" type="ColorRect" parent="."]
 visible = false

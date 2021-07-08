@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/game/desktop/DesktopTimer.gd" type="Script" id=1]
 [ext_resource path="res://resources/themes/desktop_timer_theme.tres" type="Theme" id=2]
 [ext_resource path="res://resources/audio/sounds/timer.wav" type="AudioStream" id=3]
+[ext_resource path="res://resources/audio/sounds/bomb-tick.wav" type="AudioStream" id=4]
 
 [node name="DesktopTimer" type="PanelContainer"]
 anchor_left = 1.0
@@ -47,9 +48,15 @@ one_shot = true
 [node name="SoundQueueTimer" type="Timer" parent="."]
 wait_time = 10.0
 
+[node name="BombTickTimer" type="Timer" parent="."]
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 bus = "Sounds"
 
+[node name="AudioBombTick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_CountdownTimer_timeout"]
 [connection signal="timeout" from="SoundQueueTimer" to="." method="_on_SoundQueueTimer_timeout"]
+[connection signal="timeout" from="BombTickTimer" to="." method="_on_BombTickTimer_timeout"]
