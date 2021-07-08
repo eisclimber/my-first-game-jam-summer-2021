@@ -3,14 +3,14 @@
 [ext_resource path="res://scenes/ui/ui_elements/CmdWindow.tscn" type="PackedScene" id=1]
 
 [node name="CodeKnoxExplanation" instance=ExtResource( 1 )]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -475.0
-margin_top = -290.0
-margin_right = 475.0
-margin_bottom = 290.0
+anchor_left = 0.129
+anchor_top = 0.097
+anchor_right = 0.871
+anchor_bottom = 0.903
+margin_left = -0.12001
+margin_top = 0.159996
+margin_right = 0.119873
+margin_bottom = -0.160034
 title = "Code Knox FAQ"
 text_content = "Q: What is CodeKnox?
 A: Code Knox is a Visual Encryption Service (VES) featuring an unique encryption method, making Code Knox by far the safest VES on the market.

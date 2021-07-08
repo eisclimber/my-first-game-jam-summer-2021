@@ -23,8 +23,6 @@ Recently the the price of a SmithCoin rocked to a whopping fantastillion VeeDoll
 Get them while they are hot!"
 
 [node name="Margin" parent="." index="0"]
-margin_left = 2.0
-margin_top = 2.0
 margin_right = 508.0
 margin_bottom = 350.0
 
@@ -34,34 +32,25 @@ margin_bottom = 344.0
 
 [node name="TitleHBox" parent="Margin/ContentVBox" index="0"]
 margin_right = 498.0
-margin_bottom = 28.0
-
-[node name="AppIcon" parent="Margin/ContentVBox/TitleHBox" index="0"]
-margin_bottom = 28.0
 
 [node name="TitleMargin" parent="Margin/ContentVBox/TitleHBox" index="1"]
 margin_right = 477.0
-margin_bottom = 28.0
 
 [node name="TitleLabel" parent="Margin/ContentVBox/TitleHBox/TitleMargin" index="0"]
-margin_top = 6.0
 margin_right = 473.0
-margin_bottom = 27.0
 text = "SmithCoin News"
 
 [node name="CloseButton" parent="Margin/ContentVBox/TitleHBox" index="2"]
 margin_left = 481.0
 margin_right = 498.0
-margin_bottom = 28.0
 
 [node name="ContentControl" parent="Margin/ContentVBox" index="1"]
-margin_top = 32.0
 margin_right = 498.0
 margin_bottom = 342.0
 
 [node name="ContentLabel" parent="Margin/ContentVBox/ContentControl/ContentMargin" index="0"]
 margin_right = 488.0
-margin_bottom = 300.0
+margin_bottom = 427.0
 text = "News: This new and innovative Crypto Currency is taking over the globe
 
 The coin uses an unique algorithm to generate a new coin. 

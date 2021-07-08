@@ -13,34 +13,34 @@ Expanding to this new domain, called \"internet\", is not an option.
 This is why we don't accecpt new customers."
 
 [node name="Margin" parent="." index="0"]
-margin_right = 357.0
-margin_bottom = 155.0
+margin_right = 355.0
+margin_bottom = 153.0
 
 [node name="ContentVBox" parent="Margin" index="0"]
-margin_right = 353.0
-margin_bottom = 151.0
+margin_right = 349.0
+margin_bottom = 147.0
 
 [node name="TitleHBox" parent="Margin/ContentVBox" index="0"]
-margin_right = 349.0
+margin_right = 345.0
 
 [node name="TitleMargin" parent="Margin/ContentVBox/TitleHBox" index="1"]
-margin_right = 318.0
+margin_right = 324.0
 
 [node name="TitleLabel" parent="Margin/ContentVBox/TitleHBox/TitleMargin" index="0"]
-margin_right = 314.0
+margin_right = 320.0
 text = "StaySmall"
 
 [node name="CloseButton" parent="Margin/ContentVBox/TitleHBox" index="2"]
-margin_left = 322.0
-margin_right = 349.0
+margin_left = 328.0
+margin_right = 345.0
 
 [node name="ContentControl" parent="Margin/ContentVBox" index="1"]
-margin_right = 349.0
-margin_bottom = 149.0
+margin_right = 345.0
+margin_bottom = 145.0
 
 [node name="ContentLabel" parent="Margin/ContentVBox/ContentControl/ContentMargin" index="0"]
-margin_right = 349.0
-margin_bottom = 113.0
+margin_right = 335.0
+margin_bottom = 187.0
 text = "Here at StaySmall knowing each other is key.
 
 Expanding to this new domain, called \"internet\", is not an option.

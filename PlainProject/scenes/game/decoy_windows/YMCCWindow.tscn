@@ -15,34 +15,34 @@ Using our services will make you  feel like it's not even your money that you ar
 P.S. It will also get you grounded."
 
 [node name="Margin" parent="." index="0"]
-margin_right = 495.0
-margin_bottom = 225.0
+margin_right = 493.0
+margin_bottom = 223.0
 
 [node name="ContentVBox" parent="Margin" index="0"]
-margin_right = 491.0
-margin_bottom = 221.0
+margin_right = 487.0
+margin_bottom = 217.0
 
 [node name="TitleHBox" parent="Margin/ContentVBox" index="0"]
-margin_right = 487.0
+margin_right = 483.0
 
 [node name="TitleMargin" parent="Margin/ContentVBox/TitleHBox" index="1"]
-margin_right = 456.0
+margin_right = 462.0
 
 [node name="TitleLabel" parent="Margin/ContentVBox/TitleHBox/TitleMargin" index="0"]
-margin_right = 452.0
+margin_right = 458.0
 text = "YMCC"
 
 [node name="CloseButton" parent="Margin/ContentVBox/TitleHBox" index="2"]
-margin_left = 460.0
-margin_right = 487.0
+margin_left = 466.0
+margin_right = 483.0
 
 [node name="ContentControl" parent="Margin/ContentVBox" index="1"]
-margin_right = 487.0
-margin_bottom = 219.0
+margin_right = 483.0
+margin_bottom = 215.0
 
 [node name="ContentLabel" parent="Margin/ContentVBox/ContentControl/ContentMargin" index="0"]
-margin_right = 477.0
-margin_bottom = 173.0
+margin_right = 473.0
+margin_bottom = 207.0
 text = "The Your Moms Credit Card offers an quick and easy option to pay. 
 
 

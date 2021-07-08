@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://resources/sprites/desktop/Icon0.png" type="Texture" id=1]
 [ext_resource path="res://resources/sprites/desktop/Desktop1.png" type="Texture" id=2]
@@ -28,6 +28,43 @@
 [ext_resource path="res://scenes/game/passwd_filter_game/PasswdFilter.tscn" type="PackedScene" id=26]
 [ext_resource path="res://resources/sprites/ForkliftIcon.png" type="Texture" id=27]
 [ext_resource path="res://resources/images/Fortklif-logo.png" type="Texture" id=28]
+[ext_resource path="res://resources/images/explosion.png" type="Texture" id=29]
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 29 )
+region = Rect2( 0, 0, 184, 184 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 29 )
+region = Rect2( 184, 0, 184, 184 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 29 )
+region = Rect2( 368, 0, 184, 184 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 29 )
+region = Rect2( 552, 0, 184, 184 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 29 )
+region = Rect2( 736, 0, 184, 184 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 29 )
+region = Rect2( 0, 184, 184, 184 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 29 )
+region = Rect2( 184, 184, 184, 184 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": false,
+"name": "default",
+"speed": 10.0
+} ]
 
 [sub_resource type="Animation" id=1]
 resource_name = "close_windows"
@@ -1133,6 +1170,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ExplosionAnimSprite" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 636.418, 331.347 )
+scale = Vector2( 9.03384, 8.66356 )
+frames = SubResource( 11 )
+frame = 1
+
+[node name="Tween" type="Tween" parent="."]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/close_windows = SubResource( 1 )
 anims/intro = SubResource( 2 )
@@ -1149,8 +1195,8 @@ anims/popup_windows = SubResource( 3 )
 [connection signal="move_to_front_requested" from="HBox/WindowArea/CodeKnots1" to="." method="_on_CmdWindow_move_to_front_requested"]
 [connection signal="move_to_front_requested" from="HBox/WindowArea/StaySmallWindow" to="." method="_on_CmdWindow_move_to_front_requested"]
 [connection signal="move_to_front_requested" from="HBox/WindowArea/CodeKnoxEnchrypt" to="." method="_on_CmdWindow_move_to_front_requested"]
-[connection signal="new_code_knox" from="HBox/WindowArea/CodeKnoxEnchrypt" to="HBox/WindowArea/SlidingPuzzleWindow" method="_on_CodeKnoxEnchrypt_new_code_knox"]
 [connection signal="new_code_knox" from="HBox/WindowArea/CodeKnoxEnchrypt" to="HBox/WindowArea/HackedWindow" method="_on_CodeKnoxEnchrypt_new_code_knox"]
+[connection signal="new_code_knox" from="HBox/WindowArea/CodeKnoxEnchrypt" to="HBox/WindowArea/SlidingPuzzleWindow" method="_on_CodeKnoxEnchrypt_new_code_knox"]
 [connection signal="code_entered" from="HBox/WindowArea/HackedWindow" to="." method="_on_HackedWindow_code_entered"]
 [connection signal="move_to_front_requested" from="HBox/WindowArea/HackedWindow" to="." method="_on_CmdWindow_move_to_front_requested"]
 [connection signal="popup_hide" from="HBox/WindowArea/FriendTXT" to="." method="_on_FriendTXT_popup_hide"]
@@ -1173,3 +1219,5 @@ anims/popup_windows = SubResource( 3 )
 [connection signal="popup_hide" from="WrongCodeDialog" to="." method="_on_WrongCodeDialog_popup_hide"]
 [connection signal="confirmed" from="BackToMenuDialog" to="." method="_on_BackToMenuDialog_confirmed"]
 [connection signal="popup_hide" from="BackToMenuDialog" to="." method="_on_BackToMenuDialog_popup_hide"]
+[connection signal="animation_finished" from="ExplosionAnimSprite" to="." method="_on_ExplosionAnimSprite_animation_finished"]
+[connection signal="frame_changed" from="ExplosionAnimSprite" to="." method="_on_ExplosionAnimSprite_frame_changed"]

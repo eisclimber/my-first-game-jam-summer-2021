@@ -126,11 +126,33 @@ func _on_WrongCodeDialog_popup_hide() -> void:
 
 
 
-# GameOver
-
+# GameOver sequence
+#	Shows the explosion sprite
 func _on_DesktopTimer_timeout() -> void:
-	var _error = get_tree().change_scene(ScenePaths.GAME_OVER_SCENE)
+	$ExplosionAnimSprite.show()
+	$ExplosionAnimSprite.play()	
+	# stop all timers
+	$HBox/TaskBar/Margin/TaskHBox/DesktopTimer.stop()
+	AudioHandler.play_sound("sounds.explosion")
 
+#	turns screen to red
+func _on_ExplosionAnimSprite_frame_changed():
+	# gives a death vibe to screen
+	if $ExplosionAnimSprite.frame > 2:
+		self.modulate = Color.red
+
+#	loads "game over" scene
+func _on_ExplosionAnimSprite_animation_finished():
+	# fade to black animation
+	var tween = $Tween
+	tween.interpolate_property(self, "modulate",
+		Color.red, Color.black, 1,
+		Tween.TRANS_LINEAR, Tween.EASE_OUT)
+	tween.start()
+	yield(get_tree().create_timer(1), "timeout")
+	self.modulate = Color.black
+	# go to "game over" until the end	
+	var _error = get_tree().change_scene(ScenePaths.GAME_OVER_SCENE)
 
 # Force FriendTXT to popup again if the installer wasn't executed
 func _on_FriendTXT_popup_hide():
