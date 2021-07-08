@@ -115,4 +115,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Tween" type="Tween" parent="."]
+
 [connection signal="pressed" from="Margin/ContentVBox/TitleHBox/CloseButton" to="." method="_on_CloseButton_pressed"]

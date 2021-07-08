@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://resources/sprites/desktop/Icon0.png" type="Texture" id=1]
 [ext_resource path="res://resources/sprites/desktop/Desktop1.png" type="Texture" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://scenes/game/code_knox/CodeKnoxExplanation.tscn" type="PackedScene" id=25]
 [ext_resource path="res://scenes/game/passwd_filter_game/PasswdFilter.tscn" type="PackedScene" id=26]
 [ext_resource path="res://resources/sprites/ForkliftIcon.png" type="Texture" id=27]
+[ext_resource path="res://resources/images/Fortklif-logo.png" type="Texture" id=28]
 
 [sub_resource type="Animation" id=1]
 resource_name = "close_windows"
@@ -763,7 +764,7 @@ margin_left = -569.695
 margin_top = -270.165
 margin_right = -569.695
 margin_bottom = -270.165
-icon = ExtResource( 27 )
+icon = ExtResource( 28 )
 
 [node name="GameShortcut" parent="HBox/WindowArea" instance=ExtResource( 22 )]
 visible = false
@@ -1124,6 +1125,7 @@ margin_left = -100.0
 margin_top = -35.0
 margin_right = 100.0
 margin_bottom = 35.0
+rect_min_size = Vector2( 150, 52.5 )
 theme = ExtResource( 19 )
 window_title = "Bitte bestätigen..."
 dialog_text = "Back to Menu?"
