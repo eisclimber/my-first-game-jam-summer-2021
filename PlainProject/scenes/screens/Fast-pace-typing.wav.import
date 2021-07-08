@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Fast-pace-typing.wav-2ca4d0dbfe85f3ea42efc67f9901abee.sample"
+
+[deps]
+
+source_file="res://scenes/screens/Fast-pace-typing.wav"
+dest_files=[ "res://.import/Fast-pace-typing.wav-2ca4d0dbfe85f3ea42efc67f9901abee.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
