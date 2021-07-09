@@ -9,7 +9,7 @@ export (String) var code = ""
 onready var line_edit = $Margin/ContentVBox/ContentControl/ContentMargin/NotPayedHBox/CodeLineEdit
 
 func _ready() -> void:
-	line_edit.max_length = code.length()
+#	line_edit.max_length = code.length()
 	if has_code:
 		print("HackedWindow.gd: has_code was set initally with code \"%s\"." % code)
 
@@ -33,7 +33,7 @@ func _on_CodeKnoxEnchrypt_new_code_knox(_code : PoolIntArray) -> void:
 	
 	code = new_code
 	
-	line_edit.max_length = code.length()
+#	line_edit.max_length = code.length()
 	
 	print("HackedWindow.gd: [DEBUG] Code is ", code)
 	
@@ -42,8 +42,6 @@ func _on_CodeKnoxEnchrypt_new_code_knox(_code : PoolIntArray) -> void:
 
 func set_has_code(_has_code : bool) -> void:
 	has_code = _has_code
-	
-
 
 
 func _on_CodeLineEdit_text_entered(_new_text : String) -> void:
