@@ -9,8 +9,20 @@ signal wrong_answer()
 const QUESTIONS = {
 	"questions" : [
 		{
+			"question" : "Do you really want to play Forklift?",
+			"answers" : ["yes", "y", "true", "t"]
+		},
+		{
 			"question" : "What is so fragile that saying its name breaks it?",
-			"answer" : "silence"
+			"answers" : ["silence"]
+		},
+		{
+			"question" : "Forklift begins with an 'F' and ends with an 'E'. Is that right?",
+			"answers" : ["yes", "y", "true", "t"]
+		},
+		{
+			"question" : "What is the answer to the question of thee ultimate question of life, the universe and everything?",
+			"answers" : ["42", "fortytwo", "forty-two"]
 		}
 	]
 }
@@ -45,6 +57,7 @@ func check_answer(_answer : String):
 		
 		output_label.bbcode_text += "[color=green][Correct Answer][/color] \n"
 		if current_question == QUESTIONS["questions"].size() - 1:
+			print("PasswdFilter.gd: All Answers answered correctly")
 			emit_signal("all_answers_correct")
 		else:
 			set_current_question(current_question + 1)
@@ -58,8 +71,11 @@ func check_answer(_answer : String):
 
 
 func is_answer_correct(_answer : String) -> bool:
-	var correct_answer = QUESTIONS["questions"][current_question]["answer"].to_lower()
-	return _answer == correct_answer
+	var user_answer = _answer.to_lower()
+	for correct_answer in QUESTIONS["questions"][current_question]["answers"]:
+		if user_answer == correct_answer.to_lower():
+			return true
+	return false
 
 
 

@@ -10,7 +10,7 @@
 [ext_resource path="res://resources/images/pc_webcam_decoration.png" type="Texture" id=8]
 [ext_resource path="res://resources/images/grid-screen.png" type="Texture" id=9]
 
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 
 uniform sampler2D samp;
@@ -41,14 +41,14 @@ void fragment() {
   COLOR = vec4(vec3(color.rgb * lineIntensity), color.a);
 }"
 
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 shader_param/lineIntensity = 75.0
 shader_param/lineWidth = 0.3
 shader_param/frequency = 1.0
 shader_param/samp = ExtResource( 9 )
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.215686, 0.317647, 0.498039, 0.941176 )
 border_width_left = 2
 border_width_top = 2
@@ -64,7 +64,7 @@ expand_margin_right = 8.0
 expand_margin_top = 28.0
 expand_margin_bottom = 8.0
 
-[sub_resource type="Theme" id=2]
+[sub_resource type="Theme" id=4]
 WindowDialog/colors/title_color = Color( 0, 0, 0, 1 )
 WindowDialog/constants/close_h_ofs = 18
 WindowDialog/constants/close_v_ofs = 18
@@ -73,7 +73,7 @@ WindowDialog/constants/title_height = 20
 WindowDialog/fonts/title_font = null
 WindowDialog/icons/close = null
 WindowDialog/icons/close_highlight = null
-WindowDialog/styles/panel = SubResource( 1 )
+WindowDialog/styles/panel = SubResource( 3 )
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
@@ -106,7 +106,7 @@ __meta__ = {
 }
 
 [node name="Background PC" type="TextureRect" parent="Margin"]
-margin_right = 549.0
+margin_right = 548.0
 margin_bottom = 545.0
 texture = ExtResource( 4 )
 stretch_mode = 7
@@ -115,7 +115,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Margin"]
-margin_right = 549.0
+margin_right = 548.0
 margin_bottom = 545.0
 color = Color( 0, 0, 0, 0.631373 )
 __meta__ = {
@@ -123,7 +123,7 @@ __meta__ = {
 }
 
 [node name="Margin" type="MarginContainer" parent="Margin"]
-margin_right = 549.0
+margin_right = 548.0
 margin_bottom = 545.0
 custom_constants/margin_right = 60
 custom_constants/margin_top = 60
@@ -131,7 +131,7 @@ custom_constants/margin_left = 60
 custom_constants/margin_bottom = 60
 
 [node name="ButtonsVBox" type="VBoxContainer" parent="Margin"]
-margin_right = 549.0
+margin_right = 548.0
 margin_bottom = 545.0
 custom_constants/separation = 20
 alignment = 1
@@ -184,8 +184,8 @@ size_flags_horizontal = 4
 text = "Exit"
 
 [node name="ScreenEffect" type="TextureRect" parent="Margin"]
-material = SubResource( 4 )
-margin_right = 549.0
+material = SubResource( 2 )
+margin_right = 548.0
 margin_bottom = 545.0
 mouse_filter = 2
 texture = ExtResource( 4 )
@@ -278,7 +278,7 @@ margin_bottom = 80.0
 rect_min_size = Vector2( 600, 160 )
 size_flags_horizontal = 5
 size_flags_vertical = 5
-theme = SubResource( 2 )
+theme = SubResource( 4 )
 window_title = "Warnung!"
 dialog_text = "Disclaimer: 
 This game does not aim to help you remove real ransomware or viruses from your devices.
