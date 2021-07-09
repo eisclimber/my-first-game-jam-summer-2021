@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://resources/sprites/desktop/Icon0.png" type="Texture" id=1]
 [ext_resource path="res://resources/sprites/desktop/Desktop1.png" type="Texture" id=2]
@@ -26,8 +26,7 @@
 [ext_resource path="res://scenes/game/intro sequence/intro_installation.tscn" type="PackedScene" id=24]
 [ext_resource path="res://scenes/game/code_knox/CodeKnoxExplanation.tscn" type="PackedScene" id=25]
 [ext_resource path="res://scenes/game/passwd_filter_game/PasswdFilter.tscn" type="PackedScene" id=26]
-[ext_resource path="res://resources/sprites/ForkliftIcon.png" type="Texture" id=27]
-[ext_resource path="res://resources/images/Fortklif-logo.png" type="Texture" id=28]
+[ext_resource path="res://resources/images/Fortklift-logo.png" type="Texture" id=28]
 [ext_resource path="res://resources/images/explosion.png" type="Texture" id=29]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -69,7 +68,7 @@ animations = [ {
 [sub_resource type="Animation" id=9]
 length = 2.0
 tracks/0/type = "method"
-tracks/0/path = NodePath("HBox/WindowArea/InstallerShortcut")
+tracks/0/path = NodePath("HBox/WindowArea/Margin/Grid/InstallerShortcut")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -83,7 +82,7 @@ tracks/0/keys = {
 } ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("HBox/WindowArea/GameShortcut")
+tracks/1/path = NodePath("HBox/WindowArea/Margin/Grid/GameShortcut")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -309,7 +308,7 @@ tracks/0/keys = {
 } ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("HBox/WindowArea/InstallerShortcut")
+tracks/1/path = NodePath("HBox/WindowArea/Margin/Grid/InstallerShortcut")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -320,6 +319,20 @@ tracks/1/keys = {
 "values": [ {
 "args": [  ],
 "method": "show"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("HBox/WindowArea/Margin/Grid/GameShortcut")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
 } ]
 }
 
@@ -702,7 +715,7 @@ tracks/22/keys = {
 } ]
 }
 tracks/23/type = "method"
-tracks/23/path = NodePath("HBox/WindowArea/InstallerShortcut")
+tracks/23/path = NodePath("HBox/WindowArea/Margin/Grid/InstallerShortcut")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/imported = false
@@ -750,7 +763,7 @@ tracks/25/keys = {
 } ]
 }
 tracks/26/type = "method"
-tracks/26/path = NodePath("HBox/WindowArea/GameShortcut")
+tracks/26/path = NodePath("HBox/WindowArea/Margin/Grid/GameShortcut")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/imported = false
@@ -794,21 +807,43 @@ margin_bottom = 658.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="InstallerShortcut" parent="HBox/WindowArea" instance=ExtResource( 22 )]
-visible = false
-margin_left = -569.695
-margin_top = -270.165
-margin_right = -569.695
-margin_bottom = -270.165
+[node name="Margin" type="MarginContainer" parent="HBox/WindowArea"]
+margin_right = 120.0
+margin_bottom = 140.0
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="GridContainer" parent="HBox/WindowArea/Margin"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 120.0
+margin_bottom = 264.0
+
+[node name="InstallerShortcut" parent="HBox/WindowArea/Margin/Grid" instance=ExtResource( 22 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 100.0
+margin_bottom = 120.0
 icon = ExtResource( 28 )
 
-[node name="GameShortcut" parent="HBox/WindowArea" instance=ExtResource( 22 )]
+[node name="GameShortcut" parent="HBox/WindowArea/Margin/Grid" instance=ExtResource( 22 )]
 visible = false
-margin_left = -568.872
-margin_top = -163.251
-margin_right = -568.872
-margin_bottom = -163.251
-icon = ExtResource( 27 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 124.0
+margin_right = 100.0
+margin_bottom = 244.0
+icon = ExtResource( 28 )
 program_name = "Forklift
 The Game"
 
@@ -1182,8 +1217,8 @@ anims/close_windows = SubResource( 9 )
 anims/intro = SubResource( 10 )
 anims/popup_windows = SubResource( 11 )
 
-[connection signal="double_clicked" from="HBox/WindowArea/InstallerShortcut" to="." method="_on_InstallerShortcut_double_clicked"]
-[connection signal="double_clicked" from="HBox/WindowArea/GameShortcut" to="." method="_on_GameShortcut_double_clicked"]
+[connection signal="double_clicked" from="HBox/WindowArea/Margin/Grid/InstallerShortcut" to="." method="_on_InstallerShortcut_double_clicked"]
+[connection signal="double_clicked" from="HBox/WindowArea/Margin/Grid/GameShortcut" to="." method="_on_GameShortcut_double_clicked"]
 [connection signal="move_to_front_requested" from="HBox/WindowArea/SlidingPuzzleWindow" to="." method="_on_CmdWindow_move_to_front_requested"]
 [connection signal="move_to_front_requested" from="HBox/WindowArea/SmithCoinNewsWindow" to="." method="_on_CmdWindow_move_to_front_requested"]
 [connection signal="move_to_front_requested" from="HBox/WindowArea/CodeKnots2" to="." method="_on_CmdWindow_move_to_front_requested"]
@@ -1193,8 +1228,8 @@ anims/popup_windows = SubResource( 11 )
 [connection signal="move_to_front_requested" from="HBox/WindowArea/CodeKnots1" to="." method="_on_CmdWindow_move_to_front_requested"]
 [connection signal="move_to_front_requested" from="HBox/WindowArea/StaySmallWindow" to="." method="_on_CmdWindow_move_to_front_requested"]
 [connection signal="move_to_front_requested" from="HBox/WindowArea/CodeKnoxEnchrypt" to="." method="_on_CmdWindow_move_to_front_requested"]
-[connection signal="new_code_knox" from="HBox/WindowArea/CodeKnoxEnchrypt" to="HBox/WindowArea/HackedWindow" method="_on_CodeKnoxEnchrypt_new_code_knox"]
 [connection signal="new_code_knox" from="HBox/WindowArea/CodeKnoxEnchrypt" to="HBox/WindowArea/SlidingPuzzleWindow" method="_on_CodeKnoxEnchrypt_new_code_knox"]
+[connection signal="new_code_knox" from="HBox/WindowArea/CodeKnoxEnchrypt" to="HBox/WindowArea/HackedWindow" method="_on_CodeKnoxEnchrypt_new_code_knox"]
 [connection signal="code_entered" from="HBox/WindowArea/HackedWindow" to="." method="_on_HackedWindow_code_entered"]
 [connection signal="move_to_front_requested" from="HBox/WindowArea/HackedWindow" to="." method="_on_CmdWindow_move_to_front_requested"]
 [connection signal="popup_hide" from="HBox/WindowArea/FriendTXT" to="." method="_on_FriendTXT_popup_hide"]

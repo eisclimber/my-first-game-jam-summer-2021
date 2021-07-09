@@ -118,7 +118,7 @@ _global_script_class_icons={
 
 config/name="Forklift F2P"
 run/main_scene="res://scenes/screens/MainMenuScreen.tscn"
-config/icon="res://resources/sprites/ForkliftIcon.png"
+config/icon="res://resources/images/Fortklift-logo.png"
 
 [autoload]
 
