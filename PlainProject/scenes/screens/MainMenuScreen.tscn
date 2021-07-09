@@ -1,10 +1,52 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/ui/ui_elements/button/GameButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/screens/MainMenuScreen.gd" type="Script" id=2]
 [ext_resource path="res://resources/themes/taskbar_theme.tres" type="Theme" id=3]
 [ext_resource path="res://resources/sprites/desktop/Desktop1.png" type="Texture" id=4]
 [ext_resource path="res://resources/images/forkilft-banner.png" type="Texture" id=5]
+[ext_resource path="res://resources/images/pc_protection_decoration.png" type="Texture" id=6]
+[ext_resource path="res://resources/images/pc_decoration.png" type="Texture" id=7]
+[ext_resource path="res://resources/images/pc_webcam_decoration.png" type="Texture" id=8]
+[ext_resource path="res://resources/images/grid-screen.png" type="Texture" id=9]
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+
+uniform sampler2D samp;
+uniform float lineIntensity = 1.0f;
+uniform float lineWidth = 0.4f;
+uniform float frequency = 2f;
+
+void fragment() {
+  vec4 color = vec4(1);
+  vec2 uv = UV;
+  float cosTime = cos(TIME * frequency);
+  // movement of texture
+  uv += TIME;
+  // draw line given its width
+  // smoothstep returns a gradient between arg1 and agr2, 
+  // 	returns 0 if arg3 < arg1
+  //	returns gradient if arg3 >= arg1 and arg3 <= arg2
+  // 	returns 1 if arg3 > arg2
+  color.rgb = vec3(smoothstep(lineWidth + cosTime, cosTime, UV.x));
+  color.rgb *= vec3(smoothstep(cosTime, lineWidth + cosTime, UV.x));
+  
+  // add texture to the line
+  color *= texture(samp, uv);
+  color.a = color.r * color.a;
+  // remove green and blue
+  //color.r = color.b = 0f;
+  // add brightness to line
+  COLOR = vec4(vec3(color.rgb * lineIntensity), color.a);
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
+shader_param/lineIntensity = 75.0
+shader_param/lineWidth = 0.3
+shader_param/frequency = 1.0
+shader_param/samp = ExtResource( 9 )
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.215686, 0.317647, 0.498039, 0.941176 )
@@ -42,47 +84,62 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background black" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.631373 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="."]
+visible = false
+anchor_left = 0.286
+anchor_top = 0.121
+anchor_right = 0.715
+anchor_bottom = 0.879
+margin_left = -0.0800171
+margin_top = -0.120003
+margin_right = -0.200073
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background PC" type="TextureRect" parent="Margin"]
+margin_right = 549.0
+margin_bottom = 545.0
 texture = ExtResource( 4 )
 stretch_mode = 7
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Margin" type="MarginContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="ColorRect" type="ColorRect" parent="Margin"]
+margin_right = 549.0
+margin_bottom = 545.0
+color = Color( 0, 0, 0, 0.631373 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Margin" type="MarginContainer" parent="Margin"]
-margin_right = 1280.0
-margin_bottom = 720.0
+margin_right = 549.0
+margin_bottom = 545.0
 custom_constants/margin_right = 60
 custom_constants/margin_top = 60
 custom_constants/margin_left = 60
 custom_constants/margin_bottom = 60
 
-[node name="ColorRect" type="ColorRect" parent="Margin/Margin"]
-margin_left = 60.0
-margin_top = 60.0
-margin_right = 1220.0
-margin_bottom = 660.0
-color = Color( 0, 0, 0, 0.631373 )
-
 [node name="ButtonsVBox" type="VBoxContainer" parent="Margin"]
-margin_right = 1280.0
-margin_bottom = 720.0
+margin_right = 549.0
+margin_bottom = 545.0
 custom_constants/separation = 20
 alignment = 1
 
 [node name="ForkliftLogo" type="TextureRect" parent="Margin/ButtonsVBox"]
-margin_top = 136.0
-margin_right = 1280.0
-margin_bottom = 264.0
+margin_top = 48.0
+margin_right = 549.0
+margin_bottom = 176.0
 rect_min_size = Vector2( 0, 128 )
 texture = ExtResource( 5 )
 stretch_mode = 6
@@ -91,40 +148,91 @@ __meta__ = {
 }
 
 [node name="PlayButton" parent="Margin/ButtonsVBox" instance=ExtResource( 1 )]
-margin_left = 520.0
-margin_top = 284.0
-margin_right = 760.0
-margin_bottom = 344.0
+margin_left = 154.0
+margin_top = 196.0
+margin_right = 394.0
+margin_bottom = 256.0
 rect_min_size = Vector2( 240, 60 )
 size_flags_horizontal = 4
 text = "Play"
 
 [node name="OptionsButton" parent="Margin/ButtonsVBox" instance=ExtResource( 1 )]
-margin_left = 520.0
-margin_top = 364.0
-margin_right = 760.0
-margin_bottom = 424.0
+margin_left = 154.0
+margin_top = 276.0
+margin_right = 394.0
+margin_bottom = 336.0
 rect_min_size = Vector2( 240, 60 )
 size_flags_horizontal = 4
 text = "Options"
 
 [node name="CreditsButton" parent="Margin/ButtonsVBox" instance=ExtResource( 1 )]
-margin_left = 520.0
-margin_top = 444.0
-margin_right = 760.0
-margin_bottom = 504.0
+margin_left = 154.0
+margin_top = 356.0
+margin_right = 394.0
+margin_bottom = 416.0
 rect_min_size = Vector2( 240, 60 )
 size_flags_horizontal = 4
 text = "Credits"
 
 [node name="ExitButton" parent="Margin/ButtonsVBox" instance=ExtResource( 1 )]
-margin_left = 520.0
-margin_top = 524.0
-margin_right = 760.0
-margin_bottom = 584.0
+margin_left = 154.0
+margin_top = 436.0
+margin_right = 394.0
+margin_bottom = 496.0
 rect_min_size = Vector2( 240, 60 )
 size_flags_horizontal = 4
 text = "Exit"
+
+[node name="ScreenEffect" type="TextureRect" parent="Margin"]
+material = SubResource( 4 )
+margin_right = 549.0
+margin_bottom = 545.0
+mouse_filter = 2
+texture = ExtResource( 4 )
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Foreground PC" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 7 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PC Decoration" type="TextureRect" parent="Foreground PC"]
+anchor_left = 0.437
+anchor_top = 0.001
+anchor_right = 0.558
+anchor_bottom = 0.097
+margin_left = 0.421753
+margin_top = 0.28
+margin_right = 0.541687
+margin_bottom = 0.159996
+mouse_filter = 2
+texture = ExtResource( 8 )
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PC Decoration2" type="TextureRect" parent="Foreground PC"]
+anchor_left = 0.219
+anchor_top = 0.355
+anchor_right = 0.269
+anchor_bottom = 0.628
+margin_right = -0.320038
+margin_bottom = -0.160004
+mouse_filter = 2
+texture = ExtResource( 6 )
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Margin2" type="MarginContainer" parent="."]
 margin_left = 1180.0
@@ -180,6 +288,8 @@ dialog_autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tween" type="Tween" parent="."]
 
 [connection signal="pressed" from="Margin/ButtonsVBox/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Margin/ButtonsVBox/OptionsButton" to="." method="_on_OptionsButton_pressed"]
