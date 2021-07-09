@@ -15,7 +15,7 @@ func start_animation():
 	
 	tween.interpolate_property(
 		screen, "rect_scale",
-		Vector2(0, 0), Vector2(1, 1), 2,
+		Vector2(0, 0), Vector2(1, 1), 1,
 		Tween.TRANS_ELASTIC, Tween.EASE_OUT
 	)
 	
@@ -23,7 +23,7 @@ func start_animation():
 		screen, "visible",
 		false, true, 0,
 		Tween.TRANS_ELASTIC, Tween.EASE_IN,
-		0.35
+		0.15
 	)
 	
 	tween.start()
