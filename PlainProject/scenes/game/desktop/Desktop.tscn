@@ -820,7 +820,7 @@ __meta__ = {
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 120.0
-margin_bottom = 264.0
+margin_bottom = 140.0
 
 [node name="InstallerShortcut" parent="HBox/WindowArea/Margin/Grid" instance=ExtResource( 22 )]
 anchor_left = 0.0
@@ -855,8 +855,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 285.0
 margin_top = 212.0
-margin_right = 785.0
-margin_bottom = 642.0
+margin_right = 625.0
+margin_bottom = 612.0
 
 [node name="SmithCoinNewsWindow" parent="HBox/WindowArea" instance=ExtResource( 10 )]
 visible = false
@@ -1228,8 +1228,8 @@ anims/popup_windows = SubResource( 11 )
 [connection signal="move_to_front_requested" from="HBox/WindowArea/CodeKnots1" to="." method="_on_CmdWindow_move_to_front_requested"]
 [connection signal="move_to_front_requested" from="HBox/WindowArea/StaySmallWindow" to="." method="_on_CmdWindow_move_to_front_requested"]
 [connection signal="move_to_front_requested" from="HBox/WindowArea/CodeKnoxEnchrypt" to="." method="_on_CmdWindow_move_to_front_requested"]
-[connection signal="new_code_knox" from="HBox/WindowArea/CodeKnoxEnchrypt" to="HBox/WindowArea/SlidingPuzzleWindow" method="_on_CodeKnoxEnchrypt_new_code_knox"]
 [connection signal="new_code_knox" from="HBox/WindowArea/CodeKnoxEnchrypt" to="HBox/WindowArea/HackedWindow" method="_on_CodeKnoxEnchrypt_new_code_knox"]
+[connection signal="new_code_knox" from="HBox/WindowArea/CodeKnoxEnchrypt" to="HBox/WindowArea/SlidingPuzzleWindow" method="_on_CodeKnoxEnchrypt_new_code_knox"]
 [connection signal="code_entered" from="HBox/WindowArea/HackedWindow" to="." method="_on_HackedWindow_code_entered"]
 [connection signal="move_to_front_requested" from="HBox/WindowArea/HackedWindow" to="." method="_on_CmdWindow_move_to_front_requested"]
 [connection signal="popup_hide" from="HBox/WindowArea/FriendTXT" to="." method="_on_FriendTXT_popup_hide"]

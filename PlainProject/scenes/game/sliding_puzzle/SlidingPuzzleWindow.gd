@@ -2,7 +2,9 @@ tool
 extends CmdWindow
 class_name SlidingPuzzleWindow
 
-const COIN_GENERATED_TEXT = "Coin generated."
+const COIN_GENERATED_TEXT = "Coin Generated."
+const MERCY_MOVE_COUNT = 64
+const MERCY_COIN_TEXT = "Coin Generated \n (With Mercy)."
 
 export (Texture) var coin_texture = null
 export (Vector2) var coin_preview_size = Vector2.ONE * 64
@@ -11,14 +13,19 @@ export (bool) var yields_coin = false
 
 
 onready var sliding_puzzle = $Margin/ContentVBox/ContentControl/ContentMargin/CenterContainer/CenterControl/SlidingPuzzle
+onready var mercy_button = $Margin/ContentVBox/ContentControl/ContentMargin/MercyControl/MercyButton
 
+var move_count = 0
 
 func _ready():
 	sliding_puzzle.center()
 	
-	var content_rect_size = sliding_puzzle.get_rect_size() + content_border_size
-	rect_min_size = content_rect_size
-	rect_size = content_rect_size
+#	var content_rect_size = sliding_puzzle.get_rect_size() + content_border_size + Vector2()
+#	rect_min_size = content_rect_size
+#	rect_size = content_rect_size
+	
+	move_count = 0
+	mercy_button.hide()
 
 
 func _gui_input(_event : InputEvent) -> void:
@@ -26,7 +33,9 @@ func _gui_input(_event : InputEvent) -> void:
 		# Only allow puzzle input if in front
 		if is_in_front():
 			var relative_click_pos = _event.global_position - sliding_puzzle.global_position
-			sliding_puzzle.move_tile_at_position(relative_click_pos)
+			var move_success = sliding_puzzle.move_tile_at_position(relative_click_pos)
+			if move_success:
+				increase_move_count()
 		else:
 			# If not in front, request movement
 			emit_signal("move_to_front_requested", self)
@@ -67,3 +76,17 @@ func get_drag_data(_position : Vector2):
 
 func _on_CodeKnoxEnchrypt_new_code_knox(_code : PoolIntArray) -> void:
 	yields_coin = false
+
+
+func increase_move_count() -> void:
+	move_count += 1
+	if move_count >= MERCY_MOVE_COUNT:
+		mercy_button.show()
+
+
+func _on_MercyButton_pressed():
+	if move_count >= MERCY_MOVE_COUNT:
+		yields_coin = true
+		sliding_puzzle.complete_puzzle(false)
+		set_text_content(MERCY_COIN_TEXT)
+		mercy_button.hide()

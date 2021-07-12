@@ -135,6 +135,7 @@ func _on_DesktopTimer_timeout() -> void:
 	$HBox/TaskBar/Margin/TaskHBox/DesktopTimer.stop()
 	AudioHandler.play_sound("sounds.explosion")
 
+
 #	turns screen to red
 func _on_ExplosionAnimSprite_frame_changed():
 	# gives a death vibe to screen

@@ -37,7 +37,7 @@ func _input_event(_viewport: Object, _event : InputEvent, _shape_idx : int) -> v
 
 
 func move_if_allowed():
-	if can_be_moved:
+	if can_be_moved and !is_empty:
 		emit_signal("should_be_moved", self)
 
 

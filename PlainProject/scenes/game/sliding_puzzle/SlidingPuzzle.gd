@@ -33,11 +33,11 @@ func setup_tiles() -> void:
 	shuffle_tiles()
 	
 	# Bottom right should be empty
-	var new_empty_pos = idx_to_tile_pos(num_tiles - 1)
+	var new_empty_pos = Vector2(3, 3)
 	for tile in $Tiles.get_children():
 		if tile.curr_pos == new_empty_pos:
 			tile.set_is_empty(true)
-			change_empty_pos_to(new_empty_pos, false)
+	change_empty_pos_to(new_empty_pos, false)
 
 
 func shuffle_tiles() -> void:
@@ -68,26 +68,29 @@ func change_empty_pos_to(_to : Vector2, _emit_completed : bool = true) -> void:
 		complete_puzzle()
 
 
-func complete_puzzle():
+func complete_puzzle(_emit_signal : bool = true) -> void:
 	for i in range(num_tiles):
 		$Tiles.get_child(i).disable_tile_on_complete()
 	$CompletedSprite.show()
-	emit_signal("completed")
+	if _emit_signal:
+		emit_signal("completed")
 
 
 func are_tiles_in_order() -> bool:
-	for i in range(num_tiles):
-		if !$Tiles.get_child(i).is_in_order():
+	for child in $Tiles.get_children():
+		if !child.is_in_order():
 			return false
 	return true
 
 
-# Allows input event behind a mouse filter
-func move_tile_at_position(_pos : Vector2):
+# Allows input event behind a mouse filter (returns true if successull)
+func move_tile_at_position(_pos : Vector2) -> bool:
 	var click_tile_pos = (_pos / tile_size).floor()
 	for tile in $Tiles.get_children():
-		if tile.curr_pos == click_tile_pos and tile.can_be_moved:
+		if tile.curr_pos == click_tile_pos and tile.can_be_moved and !tile.is_empty:
 			tile.move_if_allowed()
+			return true
+	return false
 
 
 
